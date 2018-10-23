@@ -1,0 +1,2825 @@
+Structure du dossier pour le volume Windows
+Le num‚ro de s‚rie du volume est 700C-4847
+C:.
+|   config.py
+|   config.pyc
+|   interface.py
+|   interface.pyc
+|   tree.txt
+|   __init__.py
+|   
++---app
+|   |   conf.cfg
+|   |   routes.py
+|   |   trajet_essai.csv
+|   |   __init__.py
+|   |   
+|   +---classes
+|   |   |   form.py
+|   |   |   generalform.py
+|   |   |   graphnode.py
+|   |   |   loginform.py
+|   |   |   logoutform.py
+|   |   |   models.py
+|   |   |   modifacceptedform.py
+|   |   |   modifform.py
+|   |   |   place.py
+|   |   |   registerform.py
+|   |   |   tags.py
+|   |   |   user.py
+|   |   |   __init__.py 
+|   |           
+|   +---computing
+|   |   |   computing.py
+|   |   |   dataframes.py
+|   |   |   plan.py
+|   |   |   schedule.py
+|   |   |   __init__.py   
+|   |           
+|   +---db
+|   |       db.py
+|   |       __init__.py
+|   |       
+|   +---mining
+|   |   |   data_mining.py
+|   |   |   nlp.py
+|   |   |   __init__.py
+|   |           
+|   +---static
+|   |   |   forms.css
+|   |   |   Thumbs.db
+|   |   |   
+|   |   +---cities
+|   |   |       arrivee.jpg
+|   |   |       Bordeaux.jpg
+|   |   |       depart.png
+|   |   |       escale.jpg
+|   |   |       Le Havre.jpg
+|   |   |       Lille.jpg
+|   |   |       Lyon.jpg
+|   |   |       Marseille.jpg
+|   |   |       Montpellier.jpg
+|   |   |       Nantes.jpg
+|   |   |       Nice.jpg
+|   |   |       Paris.jpg
+|   |   |       Reims.jpg
+|   |   |       Rennes.jpg
+|   |   |       Saint-Etienne.jpg
+|   |   |       Strasbourg.jpg
+|   |   |       Thumbs.db
+|   |   |       Toulouse.jpg
+|   |   |       
+|   |   +---css
+|   |   |   |   bootstrap-theme.css
+|   |   |   |   bootstrap-theme.css.map
+|   |   |   |   bootstrap-theme.min.css
+|   |   |   |   bootstrap-theme.min.css.map
+|   |   |   |   bootstrap.css
+|   |   |   |   bootstrap.css.map
+|   |   |   |   bootstrap.min.css
+|   |   |   |   bootstrap.min.css.map
+|   |   |   |   custom.css
+|   |   |   |   form.css
+|   |   |   |   index.css
+|   |   |   |   map.css
+|   |   |   |   style.css
+|   |   |   |   
+|   |   |   \---bootstrap-4.1.1
+|   |   |       |   .babelrc.js
+|   |   |       |   .editorconfig
+|   |   |       |   .eslintignore
+|   |   |       |   .eslintrc.json
+|   |   |       |   .gitattributes
+|   |   |       |   .gitignore
+|   |   |       |   .stylelintignore
+|   |   |       |   .stylelintrc
+|   |   |       |   .travis.yml
+|   |   |       |   CNAME
+|   |   |       |   CODE_OF_CONDUCT.md
+|   |   |       |   composer.json
+|   |   |       |   favicon.ico
+|   |   |       |   Gemfile
+|   |   |       |   Gemfile.lock
+|   |   |       |   index.html
+|   |   |       |   LICENSE
+|   |   |       |   package-lock.json
+|   |   |       |   package.js
+|   |   |       |   package.json
+|   |   |       |   README.md
+|   |   |       |   robots.txt
+|   |   |       |   sache.json
+|   |   |       |   sw.js
+|   |   |       |   _config.yml
+|   |   |       |   
+|   |   |       +---.github
+|   |   |       |   |   CONTRIBUTING.md
+|   |   |       |   |   SUPPORT.md
+|   |   |       |   |   
+|   |   |       |   \---ISSUE_TEMPLATE
+|   |   |       |           bug.md
+|   |   |       |           feature.md
+|   |   |       |           
+|   |   |       +---assets
+|   |   |       |   +---brand
+|   |   |       |   |       bootstrap-outline.svg
+|   |   |       |   |       bootstrap-punchout.svg
+|   |   |       |   |       bootstrap-social-logo.png
+|   |   |       |   |       bootstrap-social.png
+|   |   |       |   |       bootstrap-solid.svg
+|   |   |       |   |       
+|   |   |       |   +---css
+|   |   |       |   |       docs.min.css
+|   |   |       |   |       docs.min.css.map
+|   |   |       |   |       
+|   |   |       |   +---img
+|   |   |       |   |   |   bootstrap-stack.png
+|   |   |       |   |   |   bootstrap-themes.png
+|   |   |       |   |   |   
+|   |   |       |   |   \---favicons
+|   |   |       |   |           android-chrome-192x192.png
+|   |   |       |   |           android-chrome-512x512.png
+|   |   |       |   |           apple-touch-icon.png
+|   |   |       |   |           browserconfig.xml
+|   |   |       |   |           favicon-16x16.png
+|   |   |       |   |           favicon-32x32.png
+|   |   |       |   |           manifest.json
+|   |   |       |   |           mstile-144x144.png
+|   |   |       |   |           mstile-150x150.png
+|   |   |       |   |           mstile-310x150.png
+|   |   |       |   |           mstile-310x310.png
+|   |   |       |   |           mstile-70x70.png
+|   |   |       |   |           safari-pinned-tab.svg
+|   |   |       |   |           
+|   |   |       |   +---js
+|   |   |       |   |   |   .eslintrc.json
+|   |   |       |   |   |   docs.min.js
+|   |   |       |   |   |   
+|   |   |       |   |   +---src
+|   |   |       |   |   |       application.js
+|   |   |       |   |   |       ie-emulation-modes-warning.js
+|   |   |       |   |   |       pwa.js
+|   |   |       |   |   |       search.js
+|   |   |       |   |   |       
+|   |   |       |   |   \---vendor
+|   |   |       |   |           anchor.min.js
+|   |   |       |   |           clipboard.min.js
+|   |   |       |   |           holder.min.js
+|   |   |       |   |           jquery-slim.min.js
+|   |   |       |   |           popper.min.js
+|   |   |       |   |           
+|   |   |       |   \---scss
+|   |   |       |           docs.scss
+|   |   |       |           _ads.scss
+|   |   |       |           _algolia.scss
+|   |   |       |           _anchor.scss
+|   |   |       |           _brand.scss
+|   |   |       |           _browser-bugs.scss
+|   |   |       |           _buttons.scss
+|   |   |       |           _callouts.scss
+|   |   |       |           _clipboard-js.scss
+|   |   |       |           _colors.scss
+|   |   |       |           _component-examples.scss
+|   |   |       |           _content.scss
+|   |   |       |           _examples.scss
+|   |   |       |           _footer.scss
+|   |   |       |           _masthead.scss
+|   |   |       |           _nav.scss
+|   |   |       |           _sidebar.scss
+|   |   |       |           _skiplink.scss
+|   |   |       |           _syntax.scss
+|   |   |       |           _variables.scss
+|   |   |       |           
+|   |   |       +---build
+|   |   |       |       .eslintrc.json
+|   |   |       |       .htmllintrc
+|   |   |       |       change-version.js
+|   |   |       |       gcp-key.json.enc
+|   |   |       |       generate-sri.js
+|   |   |       |       lint-vars.js
+|   |   |       |       postcss.config.js
+|   |   |       |       rollup.config.js
+|   |   |       |       saucelabs-unit-test.js
+|   |   |       |       sauce_browsers.json
+|   |   |       |       ship.sh
+|   |   |       |       upload-preview.sh
+|   |   |       |       vnu-jar.js
+|   |   |       |       workbox.config.json
+|   |   |       |       workbox.js
+|   |   |       |       
+|   |   |       +---dist
+|   |   |       |   +---css
+|   |   |       |   |       bootstrap-grid.css
+|   |   |       |   |       bootstrap-grid.css.map
+|   |   |       |   |       bootstrap-grid.min.css
+|   |   |       |   |       bootstrap-grid.min.css.map
+|   |   |       |   |       bootstrap-reboot.css
+|   |   |       |   |       bootstrap-reboot.css.map
+|   |   |       |   |       bootstrap-reboot.min.css
+|   |   |       |   |       bootstrap-reboot.min.css.map
+|   |   |       |   |       bootstrap.css
+|   |   |       |   |       bootstrap.css.map
+|   |   |       |   |       bootstrap.min.css
+|   |   |       |   |       bootstrap.min.css.map
+|   |   |       |   |       
+|   |   |       |   \---js
+|   |   |       |           bootstrap.bundle.js
+|   |   |       |           bootstrap.bundle.js.map
+|   |   |       |           bootstrap.bundle.min.js
+|   |   |       |           bootstrap.bundle.min.js.map
+|   |   |       |           bootstrap.js
+|   |   |       |           bootstrap.js.map
+|   |   |       |           bootstrap.min.js
+|   |   |       |           bootstrap.min.js.map
+|   |   |       |           
+|   |   |       +---docs
+|   |   |       |   \---4.1
+|   |   |       |       |   browser-bugs.md
+|   |   |       |       |   migration.md
+|   |   |       |       |   
+|   |   |       |       +---about
+|   |   |       |       |       brand.md
+|   |   |       |       |       license.md
+|   |   |       |       |       overview.md
+|   |   |       |       |       translations.md
+|   |   |       |       |       
+|   |   |       |       +---components
+|   |   |       |       |       alerts.md
+|   |   |       |       |       badge.md
+|   |   |       |       |       breadcrumb.md
+|   |   |       |       |       button-group.md
+|   |   |       |       |       buttons.md
+|   |   |       |       |       card.md
+|   |   |       |       |       carousel.md
+|   |   |       |       |       collapse.md
+|   |   |       |       |       dropdowns.md
+|   |   |       |       |       forms.md
+|   |   |       |       |       input-group.md
+|   |   |       |       |       jumbotron.md
+|   |   |       |       |       list-group.md
+|   |   |       |       |       modal.md
+|   |   |       |       |       navbar.md
+|   |   |       |       |       navs.md
+|   |   |       |       |       pagination.md
+|   |   |       |       |       popovers.md
+|   |   |       |       |       progress.md
+|   |   |       |       |       scrollspy.md
+|   |   |       |       |       tooltips.md
+|   |   |       |       |       
+|   |   |       |       +---content
+|   |   |       |       |       code.md
+|   |   |       |       |       figures.md
+|   |   |       |       |       images.md
+|   |   |       |       |       reboot.md
+|   |   |       |       |       tables.md
+|   |   |       |       |       typography.md
+|   |   |       |       |       
+|   |   |       |       +---examples
+|   |   |       |       |   |   .eslintrc.json
+|   |   |       |       |   |   .stylelintrc
+|   |   |       |       |   |   index.html
+|   |   |       |       |   |   
+|   |   |       |       |   +---album
+|   |   |       |       |   |       album.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---blog
+|   |   |       |       |   |       blog.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---carousel
+|   |   |       |       |   |       carousel.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---checkout
+|   |   |       |       |   |       form-validation.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---cover
+|   |   |       |       |   |       cover.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---dashboard
+|   |   |       |       |   |       dashboard.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---floating-labels
+|   |   |       |       |   |       floating-labels.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---grid
+|   |   |       |       |   |       grid.css
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---jumbotron
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       jumbotron.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---navbar-bottom
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       
+|   |   |       |       |   +---navbar-fixed
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       navbar-top-fixed.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---navbar-static
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       navbar-top.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---navbars
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       navbar.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---offcanvas
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       offcanvas.css
+|   |   |       |       |   |       offcanvas.js
+|   |   |       |       |   |       
+|   |   |       |       |   +---pricing
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       pricing.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---product
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       product.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---screenshots
+|   |   |       |       |   |       album.png
+|   |   |       |       |   |       blog.png
+|   |   |       |       |   |       carousel.png
+|   |   |       |       |   |       checkout.png
+|   |   |       |       |   |       cover.png
+|   |   |       |       |   |       dashboard.png
+|   |   |       |       |   |       floating-labels.png
+|   |   |       |       |   |       grid.png
+|   |   |       |       |   |       jumbotron.png
+|   |   |       |       |   |       navbar-bottom.png
+|   |   |       |       |   |       navbar-fixed.png
+|   |   |       |       |   |       navbar-static.png
+|   |   |       |       |   |       navbars.png
+|   |   |       |       |   |       offcanvas.png
+|   |   |       |       |   |       pricing.png
+|   |   |       |       |   |       product.png
+|   |   |       |       |   |       sign-in.png
+|   |   |       |       |   |       starter-template.png
+|   |   |       |       |   |       sticky-footer-navbar.png
+|   |   |       |       |   |       sticky-footer.png
+|   |   |       |       |   |       
+|   |   |       |       |   +---sign-in
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       signin.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---starter-template
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       starter-template.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---sticky-footer
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       sticky-footer.css
+|   |   |       |       |   |       
+|   |   |       |       |   +---sticky-footer-navbar
+|   |   |       |       |   |       index.html
+|   |   |       |       |   |       sticky-footer-navbar.css
+|   |   |       |       |   |       
+|   |   |       |       |   \---tooltip-viewport
+|   |   |       |       |           index.html
+|   |   |       |       |           tooltip-viewport.css
+|   |   |       |       |           tooltip-viewport.js
+|   |   |       |       |           
+|   |   |       |       +---extend
+|   |   |       |       |       approach.md
+|   |   |       |       |       icons.md
+|   |   |       |       |       index.md
+|   |   |       |       |       
+|   |   |       |       +---getting-started
+|   |   |       |       |       accessibility.md
+|   |   |       |       |       best-practices.md
+|   |   |       |       |       browsers-devices.md
+|   |   |       |       |       build-tools.md
+|   |   |       |       |       contents.md
+|   |   |       |       |       download.md
+|   |   |       |       |       introduction.md
+|   |   |       |       |       javascript.md
+|   |   |       |       |       theming.md
+|   |   |       |       |       webpack.md
+|   |   |       |       |       
+|   |   |       |       +---layout
+|   |   |       |       |       grid.md
+|   |   |       |       |       media-object.md
+|   |   |       |       |       overview.md
+|   |   |       |       |       utilities-for-layout.md
+|   |   |       |       |       
+|   |   |       |       \---utilities
+|   |   |       |               borders.md
+|   |   |       |               clearfix.md
+|   |   |       |               close-icon.md
+|   |   |       |               colors.md
+|   |   |       |               display.md
+|   |   |       |               embed.md
+|   |   |       |               flex.md
+|   |   |       |               float.md
+|   |   |       |               image-replacement.md
+|   |   |       |               position.md
+|   |   |       |               screenreaders.md
+|   |   |       |               shadows.md
+|   |   |       |               sizing.md
+|   |   |       |               spacing.md
+|   |   |       |               text.md
+|   |   |       |               vertical-align.md
+|   |   |       |               visibility.md
+|   |   |       |               
+|   |   |       +---js
+|   |   |       |   +---dist
+|   |   |       |   |       alert.js
+|   |   |       |   |       alert.js.map
+|   |   |       |   |       button.js
+|   |   |       |   |       button.js.map
+|   |   |       |   |       carousel.js
+|   |   |       |   |       carousel.js.map
+|   |   |       |   |       collapse.js
+|   |   |       |   |       collapse.js.map
+|   |   |       |   |       dropdown.js
+|   |   |       |   |       dropdown.js.map
+|   |   |       |   |       index.js
+|   |   |       |   |       index.js.map
+|   |   |       |   |       modal.js
+|   |   |       |   |       modal.js.map
+|   |   |       |   |       popover.js
+|   |   |       |   |       popover.js.map
+|   |   |       |   |       scrollspy.js
+|   |   |       |   |       scrollspy.js.map
+|   |   |       |   |       tab.js
+|   |   |       |   |       tab.js.map
+|   |   |       |   |       tooltip.js
+|   |   |       |   |       tooltip.js.map
+|   |   |       |   |       util.js
+|   |   |       |   |       util.js.map
+|   |   |       |   |       
+|   |   |       |   +---src
+|   |   |       |   |       alert.js
+|   |   |       |   |       button.js
+|   |   |       |   |       carousel.js
+|   |   |       |   |       collapse.js
+|   |   |       |   |       dropdown.js
+|   |   |       |   |       index.js
+|   |   |       |   |       modal.js
+|   |   |       |   |       popover.js
+|   |   |       |   |       scrollspy.js
+|   |   |       |   |       tab.js
+|   |   |       |   |       tooltip.js
+|   |   |       |   |       util.js
+|   |   |       |   |       
+|   |   |       |   \---tests
+|   |   |       |       |   index.html
+|   |   |       |       |   karma-bundle.conf.js
+|   |   |       |       |   karma.conf.js
+|   |   |       |       |   README.md
+|   |   |       |       |   
+|   |   |       |       +---unit
+|   |   |       |       |       .eslintrc.json
+|   |   |       |       |       alert.js
+|   |   |       |       |       button.js
+|   |   |       |       |       carousel.js
+|   |   |       |       |       collapse.js
+|   |   |       |       |       dropdown.js
+|   |   |       |       |       modal.js
+|   |   |       |       |       popover.js
+|   |   |       |       |       scrollspy.js
+|   |   |       |       |       tab.js
+|   |   |       |       |       tooltip.js
+|   |   |       |       |       util.js
+|   |   |       |       |       
+|   |   |       |       \---visual
+|   |   |       |               alert.html
+|   |   |       |               button.html
+|   |   |       |               carousel.html
+|   |   |       |               collapse.html
+|   |   |       |               dropdown.html
+|   |   |       |               modal.html
+|   |   |       |               popover.html
+|   |   |       |               scrollspy.html
+|   |   |       |               tab.html
+|   |   |       |               tooltip.html
+|   |   |       |               
+|   |   |       +---nuget
+|   |   |       |       bootstrap.nuspec
+|   |   |       |       bootstrap.sass.nuspec
+|   |   |       |       MyGet.ps1
+|   |   |       |       
+|   |   |       +---scss
+|   |   |       |   |   bootstrap-grid.scss
+|   |   |       |   |   bootstrap-reboot.scss
+|   |   |       |   |   bootstrap.scss
+|   |   |       |   |   _alert.scss
+|   |   |       |   |   _badge.scss
+|   |   |       |   |   _breadcrumb.scss
+|   |   |       |   |   _button-group.scss
+|   |   |       |   |   _buttons.scss
+|   |   |       |   |   _card.scss
+|   |   |       |   |   _carousel.scss
+|   |   |       |   |   _close.scss
+|   |   |       |   |   _code.scss
+|   |   |       |   |   _custom-forms.scss
+|   |   |       |   |   _dropdown.scss
+|   |   |       |   |   _forms.scss
+|   |   |       |   |   _functions.scss
+|   |   |       |   |   _grid.scss
+|   |   |       |   |   _images.scss
+|   |   |       |   |   _input-group.scss
+|   |   |       |   |   _jumbotron.scss
+|   |   |       |   |   _list-group.scss
+|   |   |       |   |   _media.scss
+|   |   |       |   |   _mixins.scss
+|   |   |       |   |   _modal.scss
+|   |   |       |   |   _nav.scss
+|   |   |       |   |   _navbar.scss
+|   |   |       |   |   _pagination.scss
+|   |   |       |   |   _popover.scss
+|   |   |       |   |   _print.scss
+|   |   |       |   |   _progress.scss
+|   |   |       |   |   _reboot.scss
+|   |   |       |   |   _root.scss
+|   |   |       |   |   _tables.scss
+|   |   |       |   |   _tooltip.scss
+|   |   |       |   |   _transitions.scss
+|   |   |       |   |   _type.scss
+|   |   |       |   |   _utilities.scss
+|   |   |       |   |   _variables.scss
+|   |   |       |   |   
+|   |   |       |   +---mixins
+|   |   |       |   |       _alert.scss
+|   |   |       |   |       _background-variant.scss
+|   |   |       |   |       _badge.scss
+|   |   |       |   |       _border-radius.scss
+|   |   |       |   |       _box-shadow.scss
+|   |   |       |   |       _breakpoints.scss
+|   |   |       |   |       _buttons.scss
+|   |   |       |   |       _caret.scss
+|   |   |       |   |       _clearfix.scss
+|   |   |       |   |       _float.scss
+|   |   |       |   |       _forms.scss
+|   |   |       |   |       _gradients.scss
+|   |   |       |   |       _grid-framework.scss
+|   |   |       |   |       _grid.scss
+|   |   |       |   |       _hover.scss
+|   |   |       |   |       _image.scss
+|   |   |       |   |       _list-group.scss
+|   |   |       |   |       _lists.scss
+|   |   |       |   |       _nav-divider.scss
+|   |   |       |   |       _pagination.scss
+|   |   |       |   |       _reset-text.scss
+|   |   |       |   |       _resize.scss
+|   |   |       |   |       _screen-reader.scss
+|   |   |       |   |       _size.scss
+|   |   |       |   |       _table-row.scss
+|   |   |       |   |       _text-emphasis.scss
+|   |   |       |   |       _text-hide.scss
+|   |   |       |   |       _text-truncate.scss
+|   |   |       |   |       _transition.scss
+|   |   |       |   |       _visibility.scss
+|   |   |       |   |       
+|   |   |       |   \---utilities
+|   |   |       |           _align.scss
+|   |   |       |           _background.scss
+|   |   |       |           _borders.scss
+|   |   |       |           _clearfix.scss
+|   |   |       |           _display.scss
+|   |   |       |           _embed.scss
+|   |   |       |           _flex.scss
+|   |   |       |           _float.scss
+|   |   |       |           _position.scss
+|   |   |       |           _screenreaders.scss
+|   |   |       |           _shadows.scss
+|   |   |       |           _sizing.scss
+|   |   |       |           _spacing.scss
+|   |   |       |           _text.scss
+|   |   |       |           _visibility.scss
+|   |   |       |           
+|   |   |       +---_data
+|   |   |       |       breakpoints.yml
+|   |   |       |       browser-bugs.yml
+|   |   |       |       browser-features.yml
+|   |   |       |       colors.yml
+|   |   |       |       examples.yml
+|   |   |       |       grays.yml
+|   |   |       |       nav.yml
+|   |   |       |       theme-colors.yml
+|   |   |       |       translations.yml
+|   |   |       |       
+|   |   |       +---_includes
+|   |   |       |   |   ads.html
+|   |   |       |   |   bugify.html
+|   |   |       |   |   callout-danger-async-methods.md
+|   |   |       |   |   callout-info-mediaqueries-breakpoints.md
+|   |   |       |   |   callout-warning-color-assistive-technologies.md
+|   |   |       |   |   callout.html
+|   |   |       |   |   docs-navbar.html
+|   |   |       |   |   docs-sidebar.html
+|   |   |       |   |   example.html
+|   |   |       |   |   favicons.html
+|   |   |       |   |   footer.html
+|   |   |       |   |   header.html
+|   |   |       |   |   scripts.html
+|   |   |       |   |   skippy.html
+|   |   |       |   |   social.html
+|   |   |       |   |   
+|   |   |       |   \---icons
+|   |   |       |           bootstrap.svg
+|   |   |       |           download.svg
+|   |   |       |           github.svg
+|   |   |       |           import.svg
+|   |   |       |           lightning.svg
+|   |   |       |           menu.svg
+|   |   |       |           slack.svg
+|   |   |       |           twitter.svg
+|   |   |       |           
+|   |   |       \---_layouts
+|   |   |               default.html
+|   |   |               docs.html
+|   |   |               examples.html
+|   |   |               home.html
+|   |   |               redirect.html
+|   |   |               simple.html
+|   |   |               
+|   |   +---fonts
+|   |   |       glyphicons-halflings-regular.eot
+|   |   |       glyphicons-halflings-regular.svg
+|   |   |       glyphicons-halflings-regular.ttf
+|   |   |       glyphicons-halflings-regular.woff
+|   |   |       glyphicons-halflings-regular.woff2
+|   |   |       Hero Light.otf
+|   |   |       Hero.otf
+|   |   |       
+|   |   +---img
+|   |   |       arrivee.jpg
+|   |   |       Bordeaux.jpg
+|   |   |       depart.png
+|   |   |       escale.jpg
+|   |   |       Le Havre.jpg
+|   |   |       Lille.jpg
+|   |   |       loading.gif
+|   |   |       logo.gif
+|   |   |       logo.png
+|   |   |       Lyon.jpg
+|   |   |       Marseille.jpg
+|   |   |       Montpellier.jpg
+|   |   |       Nantes.jpg
+|   |   |       Nice.jpg
+|   |   |       Paris.jpg
+|   |   |       Reims.jpg
+|   |   |       Rennes.jpg
+|   |   |       Saint-Etienne.jpg
+|   |   |       sleeping.png
+|   |   |       stars.png
+|   |   |       Strasbourg.jpg
+|   |   |       Thumbs.db
+|   |   |       Toulouse.jpg
+|   |   |       video.mp4
+|   |   |       video1.mp4
+|   |   |       
+|   |   +---js
+|   |   |       bootstrap.js
+|   |   |       bootstrap.min.js
+|   |   |       jquery.js
+|   |   |       map.js
+|   |   |       npm.js
+|   |   |       snazzy-info-window.min.js
+|   |   |       
+|   |   \---style
+|   |           style.css
+|   |           
+|   +---templates
+|   |   |   base.html
+|   |   |   form.html
+|   |   |   login.html
+|   |   |   map.html
+|   |   |   profile.html
+|   |   |   register.html
+|   |   |   Thumbs.db
+|   |   |   __init__.py
+|   |   |   
+|   |   \---cities
+|   |           arrivee.jpg
+|   |           Bordeaux.jpg
+|   |           depart.png
+|   |           escale.jpg
+|   |           Le Havre.jpg
+|   |           Lille.jpg
+|   |           Lyon.jpg
+|   |           Marseille.jpg
+|   |           Montpellier.jpg
+|   |           Nantes.jpg
+|   |           Nice.jpg
+|   |           Paris.jpg
+|   |           Reims.jpg
+|   |           Rennes.jpg
+|   |           Saint-Etienne.jpg
+|   |           Strasbourg.jpg
+|   |           Thumbs.db
+|   |           Toulouse.jpg
+|   |           
+|   +---user
+|   \---util
+|           visualization.py
+|           __init__.py
+|           
++---venv
+|   |   lib64
+|   |   pip-selfcheck.json
+|   |   pyvenv.cfg
+|   |   
+|   +---bin
+|   |       activate
+|   |       activate.csh
+|   |       activate.fish
+|   |       alembic
+|   |       easy_install
+|   |       easy_install-3.6
+|   |       flask
+|   |       mako-render
+|   |       pip
+|   |       pip3
+|   |       pip3.6
+|   |       python
+|   |       python2
+|   |       python2.7
+|   |       python3
+|   |       
+|   +---include
+|   |       python2.7
+|   |       
+|   \---lib
+|       +---python2.7
+|       |       abc.py
+|       |       codecs.py
+|       |       copy_reg.py
+|       |       encodings
+|       |       fnmatch.py
+|       |       genericpath.py
+|       |       lib-dynload
+|       |       linecache.py
+|       |       locale.py
+|       |       no-global-site-packages.txt
+|       |       ntpath.py
+|       |       orig-prefix.txt
+|       |       os.py
+|       |       posixpath.py
+|       |       re.py
+|       |       site.py
+|       |       sre.py
+|       |       sre_compile.py
+|       |       sre_constants.py
+|       |       sre_parse.py
+|       |       stat.py
+|       |       types.py
+|       |       UserDict.py
+|       |       warnings.py
+|       |       _abcoll.py
+|       |       _weakrefset.py
+|       |       
+|       \---python3.6
+|           \---site-packages
+|               |   easy_install.py
+|               |   editor.py
+|               |   itsdangerous.py
+|               |   six.py
+|               |   
+|               +---alembic
+|               |   |   command.py
+|               |   |   config.py
+|               |   |   context.py
+|               |   |   op.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---autogenerate
+|               |   |   |   api.py
+|               |   |   |   compare.py
+|               |   |   |   render.py
+|               |   |   |   rewriter.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           api.cpython-36.pyc
+|               |   |           compare.cpython-36.pyc
+|               |   |           render.cpython-36.pyc
+|               |   |           rewriter.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---ddl
+|               |   |   |   base.py
+|               |   |   |   impl.py
+|               |   |   |   mssql.py
+|               |   |   |   mysql.py
+|               |   |   |   oracle.py
+|               |   |   |   postgresql.py
+|               |   |   |   sqlite.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           base.cpython-36.pyc
+|               |   |           impl.cpython-36.pyc
+|               |   |           mssql.cpython-36.pyc
+|               |   |           mysql.cpython-36.pyc
+|               |   |           oracle.cpython-36.pyc
+|               |   |           postgresql.cpython-36.pyc
+|               |   |           sqlite.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---operations
+|               |   |   |   base.py
+|               |   |   |   batch.py
+|               |   |   |   ops.py
+|               |   |   |   schemaobj.py
+|               |   |   |   toimpl.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           base.cpython-36.pyc
+|               |   |           batch.cpython-36.pyc
+|               |   |           ops.cpython-36.pyc
+|               |   |           schemaobj.cpython-36.pyc
+|               |   |           toimpl.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---runtime
+|               |   |   |   environment.py
+|               |   |   |   migration.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           environment.cpython-36.pyc
+|               |   |           migration.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---script
+|               |   |   |   base.py
+|               |   |   |   revision.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           base.cpython-36.pyc
+|               |   |           revision.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---templates
+|               |   |   +---generic
+|               |   |   |   |   alembic.ini.mako
+|               |   |   |   |   env.py
+|               |   |   |   |   README
+|               |   |   |   |   script.py.mako
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           env.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---multidb
+|               |   |   |   |   alembic.ini.mako
+|               |   |   |   |   env.py
+|               |   |   |   |   README
+|               |   |   |   |   script.py.mako
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           env.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---pylons
+|               |   |       |   alembic.ini.mako
+|               |   |       |   env.py
+|               |   |       |   README
+|               |   |       |   script.py.mako
+|               |   |       |   
+|               |   |       \---__pycache__
+|               |   |               env.cpython-36.pyc
+|               |   |               
+|               |   +---testing
+|               |   |   |   assertions.py
+|               |   |   |   compat.py
+|               |   |   |   config.py
+|               |   |   |   engines.py
+|               |   |   |   env.py
+|               |   |   |   exclusions.py
+|               |   |   |   fixtures.py
+|               |   |   |   mock.py
+|               |   |   |   provision.py
+|               |   |   |   requirements.py
+|               |   |   |   runner.py
+|               |   |   |   util.py
+|               |   |   |   warnings.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---plugin
+|               |   |   |   |   bootstrap.py
+|               |   |   |   |   noseplugin.py
+|               |   |   |   |   plugin_base.py
+|               |   |   |   |   pytestplugin.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           bootstrap.cpython-36.pyc
+|               |   |   |           noseplugin.cpython-36.pyc
+|               |   |   |           plugin_base.cpython-36.pyc
+|               |   |   |           pytestplugin.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---__pycache__
+|               |   |           assertions.cpython-36.pyc
+|               |   |           compat.cpython-36.pyc
+|               |   |           config.cpython-36.pyc
+|               |   |           engines.cpython-36.pyc
+|               |   |           env.cpython-36.pyc
+|               |   |           exclusions.cpython-36.pyc
+|               |   |           fixtures.cpython-36.pyc
+|               |   |           mock.cpython-36.pyc
+|               |   |           provision.cpython-36.pyc
+|               |   |           requirements.cpython-36.pyc
+|               |   |           runner.cpython-36.pyc
+|               |   |           util.cpython-36.pyc
+|               |   |           warnings.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---util
+|               |   |   |   compat.py
+|               |   |   |   exc.py
+|               |   |   |   langhelpers.py
+|               |   |   |   messaging.py
+|               |   |   |   pyfiles.py
+|               |   |   |   sqla_compat.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           compat.cpython-36.pyc
+|               |   |           exc.cpython-36.pyc
+|               |   |           langhelpers.cpython-36.pyc
+|               |   |           messaging.cpython-36.pyc
+|               |   |           pyfiles.cpython-36.pyc
+|               |   |           sqla_compat.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           command.cpython-36.pyc
+|               |           config.cpython-36.pyc
+|               |           context.cpython-36.pyc
+|               |           op.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---alembic-0.9.9-py3.6.egg-info
+|               |       dependency_links.txt
+|               |       entry_points.txt
+|               |       installed-files.txt
+|               |       not-zip-safe
+|               |       PKG-INFO
+|               |       requires.txt
+|               |       SOURCES.txt
+|               |       top_level.txt
+|               |       
+|               +---app
+|               |   |   person.py
+|               |   |   __init__.py
+|               |   |   
+|               |   \---__pycache__
+|               |           person.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---app-0.0.1.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---click
+|               |   |   core.py
+|               |   |   decorators.py
+|               |   |   exceptions.py
+|               |   |   formatting.py
+|               |   |   globals.py
+|               |   |   parser.py
+|               |   |   termui.py
+|               |   |   testing.py
+|               |   |   types.py
+|               |   |   utils.py
+|               |   |   _bashcomplete.py
+|               |   |   _compat.py
+|               |   |   _termui_impl.py
+|               |   |   _textwrap.py
+|               |   |   _unicodefun.py
+|               |   |   _winconsole.py
+|               |   |   __init__.py
+|               |   |   
+|               |   \---__pycache__
+|               |           core.cpython-36.pyc
+|               |           decorators.cpython-36.pyc
+|               |           exceptions.cpython-36.pyc
+|               |           formatting.cpython-36.pyc
+|               |           globals.cpython-36.pyc
+|               |           parser.cpython-36.pyc
+|               |           termui.cpython-36.pyc
+|               |           testing.cpython-36.pyc
+|               |           types.cpython-36.pyc
+|               |           utils.cpython-36.pyc
+|               |           _bashcomplete.cpython-36.pyc
+|               |           _compat.cpython-36.pyc
+|               |           _termui_impl.cpython-36.pyc
+|               |           _textwrap.cpython-36.pyc
+|               |           _unicodefun.cpython-36.pyc
+|               |           _winconsole.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---click-6.7.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---dateutil
+|               |   |   easter.py
+|               |   |   relativedelta.py
+|               |   |   rrule.py
+|               |   |   tzwin.py
+|               |   |   utils.py
+|               |   |   _common.py
+|               |   |   _version.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---parser
+|               |   |   |   isoparser.py
+|               |   |   |   _parser.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           isoparser.cpython-36.pyc
+|               |   |           _parser.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---tz
+|               |   |   |   tz.py
+|               |   |   |   win.py
+|               |   |   |   _common.py
+|               |   |   |   _factories.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           tz.cpython-36.pyc
+|               |   |           win.cpython-36.pyc
+|               |   |           _common.cpython-36.pyc
+|               |   |           _factories.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---zoneinfo
+|               |   |   |   dateutil-zoneinfo.tar.gz
+|               |   |   |   rebuild.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           rebuild.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           easter.cpython-36.pyc
+|               |           relativedelta.cpython-36.pyc
+|               |           rrule.cpython-36.pyc
+|               |           tzwin.cpython-36.pyc
+|               |           utils.cpython-36.pyc
+|               |           _common.cpython-36.pyc
+|               |           _version.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---flask
+|               |   |   app.py
+|               |   |   blueprints.py
+|               |   |   cli.py
+|               |   |   config.py
+|               |   |   ctx.py
+|               |   |   debughelpers.py
+|               |   |   exthook.py
+|               |   |   globals.py
+|               |   |   helpers.py
+|               |   |   json.py
+|               |   |   logging.py
+|               |   |   sessions.py
+|               |   |   signals.py
+|               |   |   templating.py
+|               |   |   testing.py
+|               |   |   views.py
+|               |   |   wrappers.py
+|               |   |   _compat.py
+|               |   |   __init__.py
+|               |   |   __main__.py
+|               |   |   
+|               |   +---ext
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           app.cpython-36.pyc
+|               |           blueprints.cpython-36.pyc
+|               |           cli.cpython-36.pyc
+|               |           config.cpython-36.pyc
+|               |           ctx.cpython-36.pyc
+|               |           debughelpers.cpython-36.pyc
+|               |           exthook.cpython-36.pyc
+|               |           globals.cpython-36.pyc
+|               |           helpers.cpython-36.pyc
+|               |           json.cpython-36.pyc
+|               |           logging.cpython-36.pyc
+|               |           sessions.cpython-36.pyc
+|               |           signals.cpython-36.pyc
+|               |           templating.cpython-36.pyc
+|               |           testing.cpython-36.pyc
+|               |           views.cpython-36.pyc
+|               |           wrappers.cpython-36.pyc
+|               |           _compat.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           __main__.cpython-36.pyc
+|               |           
+|               +---Flask-0.12.2.dist-info
+|               |       DESCRIPTION.rst
+|               |       entry_points.txt
+|               |       INSTALLER
+|               |       LICENSE.txt
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---flask_cache
+|               |   |   backends.py
+|               |   |   jinja2ext.py
+|               |   |   _compat.py
+|               |   |   __init__.py
+|               |   |   
+|               |   \---__pycache__
+|               |           backends.cpython-36.pyc
+|               |           jinja2ext.cpython-36.pyc
+|               |           _compat.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---Flask_Cache-0.13.1-py3.6.egg-info
+|               |       dependency_links.txt
+|               |       installed-files.txt
+|               |       not-zip-safe
+|               |       PKG-INFO
+|               |       requires.txt
+|               |       SOURCES.txt
+|               |       top_level.txt
+|               |       
+|               +---flask_migrate
+|               |   |   cli.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---templates
+|               |   |   +---flask
+|               |   |   |   |   alembic.ini.mako
+|               |   |   |   |   env.py
+|               |   |   |   |   README
+|               |   |   |   |   script.py.mako
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           env.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---flask-multidb
+|               |   |       |   alembic.ini.mako
+|               |   |       |   env.py
+|               |   |       |   README
+|               |   |       |   script.py.mako
+|               |   |       |   
+|               |   |       \---__pycache__
+|               |   |               env.cpython-36.pyc
+|               |   |               
+|               |   \---__pycache__
+|               |           cli.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---Flask_Migrate-2.1.1.dist-info
+|               |       DESCRIPTION.rst
+|               |       entry_points.txt
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---flask_sqlalchemy
+|               |   |   model.py
+|               |   |   _compat.py
+|               |   |   __init__.py
+|               |   |   
+|               |   \---__pycache__
+|               |           model.cpython-36.pyc
+|               |           _compat.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---Flask_SQLAlchemy-2.3.2.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       LICENSE.txt
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---itsdangerous-0.24.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---jinja2
+|               |   |   asyncfilters.py
+|               |   |   asyncsupport.py
+|               |   |   bccache.py
+|               |   |   compiler.py
+|               |   |   constants.py
+|               |   |   debug.py
+|               |   |   defaults.py
+|               |   |   environment.py
+|               |   |   exceptions.py
+|               |   |   ext.py
+|               |   |   filters.py
+|               |   |   idtracking.py
+|               |   |   lexer.py
+|               |   |   loaders.py
+|               |   |   meta.py
+|               |   |   nativetypes.py
+|               |   |   nodes.py
+|               |   |   optimizer.py
+|               |   |   parser.py
+|               |   |   runtime.py
+|               |   |   sandbox.py
+|               |   |   tests.py
+|               |   |   utils.py
+|               |   |   visitor.py
+|               |   |   _compat.py
+|               |   |   _identifier.py
+|               |   |   __init__.py
+|               |   |   
+|               |   \---__pycache__
+|               |           asyncfilters.cpython-36.pyc
+|               |           asyncsupport.cpython-36.pyc
+|               |           bccache.cpython-36.pyc
+|               |           compiler.cpython-36.pyc
+|               |           constants.cpython-36.pyc
+|               |           debug.cpython-36.pyc
+|               |           defaults.cpython-36.pyc
+|               |           environment.cpython-36.pyc
+|               |           exceptions.cpython-36.pyc
+|               |           ext.cpython-36.pyc
+|               |           filters.cpython-36.pyc
+|               |           idtracking.cpython-36.pyc
+|               |           lexer.cpython-36.pyc
+|               |           loaders.cpython-36.pyc
+|               |           meta.cpython-36.pyc
+|               |           nativetypes.cpython-36.pyc
+|               |           nodes.cpython-36.pyc
+|               |           optimizer.cpython-36.pyc
+|               |           parser.cpython-36.pyc
+|               |           runtime.cpython-36.pyc
+|               |           sandbox.cpython-36.pyc
+|               |           tests.cpython-36.pyc
+|               |           utils.cpython-36.pyc
+|               |           visitor.cpython-36.pyc
+|               |           _compat.cpython-36.pyc
+|               |           _identifier.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---Jinja2-2.10.dist-info
+|               |       DESCRIPTION.rst
+|               |       entry_points.txt
+|               |       INSTALLER
+|               |       LICENSE.txt
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---mako
+|               |   |   ast.py
+|               |   |   cache.py
+|               |   |   cmd.py
+|               |   |   codegen.py
+|               |   |   compat.py
+|               |   |   exceptions.py
+|               |   |   filters.py
+|               |   |   lexer.py
+|               |   |   lookup.py
+|               |   |   parsetree.py
+|               |   |   pygen.py
+|               |   |   pyparser.py
+|               |   |   runtime.py
+|               |   |   template.py
+|               |   |   util.py
+|               |   |   _ast_util.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---ext
+|               |   |   |   autohandler.py
+|               |   |   |   babelplugin.py
+|               |   |   |   beaker_cache.py
+|               |   |   |   extract.py
+|               |   |   |   linguaplugin.py
+|               |   |   |   preprocessors.py
+|               |   |   |   pygmentplugin.py
+|               |   |   |   turbogears.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           autohandler.cpython-36.pyc
+|               |   |           babelplugin.cpython-36.pyc
+|               |   |           beaker_cache.cpython-36.pyc
+|               |   |           extract.cpython-36.pyc
+|               |   |           linguaplugin.cpython-36.pyc
+|               |   |           preprocessors.cpython-36.pyc
+|               |   |           pygmentplugin.cpython-36.pyc
+|               |   |           turbogears.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           ast.cpython-36.pyc
+|               |           cache.cpython-36.pyc
+|               |           cmd.cpython-36.pyc
+|               |           codegen.cpython-36.pyc
+|               |           compat.cpython-36.pyc
+|               |           exceptions.cpython-36.pyc
+|               |           filters.cpython-36.pyc
+|               |           lexer.cpython-36.pyc
+|               |           lookup.cpython-36.pyc
+|               |           parsetree.cpython-36.pyc
+|               |           pygen.cpython-36.pyc
+|               |           pyparser.cpython-36.pyc
+|               |           runtime.cpython-36.pyc
+|               |           template.cpython-36.pyc
+|               |           util.cpython-36.pyc
+|               |           _ast_util.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---Mako-1.0.7-py3.6.egg-info
+|               |       dependency_links.txt
+|               |       entry_points.txt
+|               |       installed-files.txt
+|               |       not-zip-safe
+|               |       PKG-INFO
+|               |       requires.txt
+|               |       SOURCES.txt
+|               |       top_level.txt
+|               |       
+|               +---markupsafe
+|               |   |   _compat.py
+|               |   |   _constants.py
+|               |   |   _native.py
+|               |   |   _speedups.c
+|               |   |   _speedups.cpython-36m-x86_64-linux-gnu.so
+|               |   |   __init__.py
+|               |   |   
+|               |   \---__pycache__
+|               |           _compat.cpython-36.pyc
+|               |           _constants.cpython-36.pyc
+|               |           _native.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---MarkupSafe-1.0.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       LICENSE.txt
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---pip
+|               |   |   basecommand.py
+|               |   |   baseparser.py
+|               |   |   cmdoptions.py
+|               |   |   download.py
+|               |   |   exceptions.py
+|               |   |   index.py
+|               |   |   locations.py
+|               |   |   pep425tags.py
+|               |   |   status_codes.py
+|               |   |   wheel.py
+|               |   |   __init__.py
+|               |   |   __main__.py
+|               |   |   
+|               |   +---commands
+|               |   |   |   check.py
+|               |   |   |   completion.py
+|               |   |   |   download.py
+|               |   |   |   freeze.py
+|               |   |   |   hash.py
+|               |   |   |   help.py
+|               |   |   |   install.py
+|               |   |   |   list.py
+|               |   |   |   search.py
+|               |   |   |   show.py
+|               |   |   |   uninstall.py
+|               |   |   |   wheel.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           check.cpython-36.pyc
+|               |   |           completion.cpython-36.pyc
+|               |   |           download.cpython-36.pyc
+|               |   |           freeze.cpython-36.pyc
+|               |   |           hash.cpython-36.pyc
+|               |   |           help.cpython-36.pyc
+|               |   |           install.cpython-36.pyc
+|               |   |           list.cpython-36.pyc
+|               |   |           search.cpython-36.pyc
+|               |   |           show.cpython-36.pyc
+|               |   |           uninstall.cpython-36.pyc
+|               |   |           wheel.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---compat
+|               |   |   |   dictconfig.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           dictconfig.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---models
+|               |   |   |   index.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           index.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---operations
+|               |   |   |   check.py
+|               |   |   |   freeze.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           check.cpython-36.pyc
+|               |   |           freeze.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---req
+|               |   |   |   req_file.py
+|               |   |   |   req_install.py
+|               |   |   |   req_set.py
+|               |   |   |   req_uninstall.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           req_file.cpython-36.pyc
+|               |   |           req_install.cpython-36.pyc
+|               |   |           req_set.cpython-36.pyc
+|               |   |           req_uninstall.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---utils
+|               |   |   |   appdirs.py
+|               |   |   |   build.py
+|               |   |   |   deprecation.py
+|               |   |   |   encoding.py
+|               |   |   |   filesystem.py
+|               |   |   |   glibc.py
+|               |   |   |   hashes.py
+|               |   |   |   logging.py
+|               |   |   |   outdated.py
+|               |   |   |   packaging.py
+|               |   |   |   setuptools_build.py
+|               |   |   |   ui.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           appdirs.cpython-36.pyc
+|               |   |           build.cpython-36.pyc
+|               |   |           deprecation.cpython-36.pyc
+|               |   |           encoding.cpython-36.pyc
+|               |   |           filesystem.cpython-36.pyc
+|               |   |           glibc.cpython-36.pyc
+|               |   |           hashes.cpython-36.pyc
+|               |   |           logging.cpython-36.pyc
+|               |   |           outdated.cpython-36.pyc
+|               |   |           packaging.cpython-36.pyc
+|               |   |           setuptools_build.cpython-36.pyc
+|               |   |           ui.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---vcs
+|               |   |   |   bazaar.py
+|               |   |   |   git.py
+|               |   |   |   mercurial.py
+|               |   |   |   subversion.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           bazaar.cpython-36.pyc
+|               |   |           git.cpython-36.pyc
+|               |   |           mercurial.cpython-36.pyc
+|               |   |           subversion.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---_vendor
+|               |   |   |   appdirs.py
+|               |   |   |   distro.py
+|               |   |   |   ipaddress.py
+|               |   |   |   ordereddict.py
+|               |   |   |   pyparsing.py
+|               |   |   |   re-vendor.py
+|               |   |   |   retrying.py
+|               |   |   |   six.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---cachecontrol
+|               |   |   |   |   adapter.py
+|               |   |   |   |   cache.py
+|               |   |   |   |   compat.py
+|               |   |   |   |   controller.py
+|               |   |   |   |   filewrapper.py
+|               |   |   |   |   heuristics.py
+|               |   |   |   |   serialize.py
+|               |   |   |   |   wrapper.py
+|               |   |   |   |   _cmd.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   +---caches
+|               |   |   |   |   |   file_cache.py
+|               |   |   |   |   |   redis_cache.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           file_cache.cpython-36.pyc
+|               |   |   |   |           redis_cache.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   \---__pycache__
+|               |   |   |           adapter.cpython-36.pyc
+|               |   |   |           cache.cpython-36.pyc
+|               |   |   |           compat.cpython-36.pyc
+|               |   |   |           controller.cpython-36.pyc
+|               |   |   |           filewrapper.cpython-36.pyc
+|               |   |   |           heuristics.cpython-36.pyc
+|               |   |   |           serialize.cpython-36.pyc
+|               |   |   |           wrapper.cpython-36.pyc
+|               |   |   |           _cmd.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---colorama
+|               |   |   |   |   ansi.py
+|               |   |   |   |   ansitowin32.py
+|               |   |   |   |   initialise.py
+|               |   |   |   |   win32.py
+|               |   |   |   |   winterm.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           ansi.cpython-36.pyc
+|               |   |   |           ansitowin32.cpython-36.pyc
+|               |   |   |           initialise.cpython-36.pyc
+|               |   |   |           win32.cpython-36.pyc
+|               |   |   |           winterm.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---distlib
+|               |   |   |   |   compat.py
+|               |   |   |   |   database.py
+|               |   |   |   |   index.py
+|               |   |   |   |   locators.py
+|               |   |   |   |   manifest.py
+|               |   |   |   |   markers.py
+|               |   |   |   |   metadata.py
+|               |   |   |   |   resources.py
+|               |   |   |   |   scripts.py
+|               |   |   |   |   t32.exe
+|               |   |   |   |   t64.exe
+|               |   |   |   |   util.py
+|               |   |   |   |   version.py
+|               |   |   |   |   w32.exe
+|               |   |   |   |   w64.exe
+|               |   |   |   |   wheel.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   +---_backport
+|               |   |   |   |   |   misc.py
+|               |   |   |   |   |   shutil.py
+|               |   |   |   |   |   sysconfig.cfg
+|               |   |   |   |   |   sysconfig.py
+|               |   |   |   |   |   tarfile.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           misc.cpython-36.pyc
+|               |   |   |   |           shutil.cpython-36.pyc
+|               |   |   |   |           sysconfig.cpython-36.pyc
+|               |   |   |   |           tarfile.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   \---__pycache__
+|               |   |   |           compat.cpython-36.pyc
+|               |   |   |           database.cpython-36.pyc
+|               |   |   |           index.cpython-36.pyc
+|               |   |   |           locators.cpython-36.pyc
+|               |   |   |           manifest.cpython-36.pyc
+|               |   |   |           markers.cpython-36.pyc
+|               |   |   |           metadata.cpython-36.pyc
+|               |   |   |           resources.cpython-36.pyc
+|               |   |   |           scripts.cpython-36.pyc
+|               |   |   |           util.cpython-36.pyc
+|               |   |   |           version.cpython-36.pyc
+|               |   |   |           wheel.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---html5lib
+|               |   |   |   |   constants.py
+|               |   |   |   |   html5parser.py
+|               |   |   |   |   serializer.py
+|               |   |   |   |   _ihatexml.py
+|               |   |   |   |   _inputstream.py
+|               |   |   |   |   _tokenizer.py
+|               |   |   |   |   _utils.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   +---filters
+|               |   |   |   |   |   alphabeticalattributes.py
+|               |   |   |   |   |   base.py
+|               |   |   |   |   |   inject_meta_charset.py
+|               |   |   |   |   |   lint.py
+|               |   |   |   |   |   optionaltags.py
+|               |   |   |   |   |   sanitizer.py
+|               |   |   |   |   |   whitespace.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           alphabeticalattributes.cpython-36.pyc
+|               |   |   |   |           base.cpython-36.pyc
+|               |   |   |   |           inject_meta_charset.cpython-36.pyc
+|               |   |   |   |           lint.cpython-36.pyc
+|               |   |   |   |           optionaltags.cpython-36.pyc
+|               |   |   |   |           sanitizer.cpython-36.pyc
+|               |   |   |   |           whitespace.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   +---treeadapters
+|               |   |   |   |   |   genshi.py
+|               |   |   |   |   |   sax.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           genshi.cpython-36.pyc
+|               |   |   |   |           sax.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   +---treebuilders
+|               |   |   |   |   |   base.py
+|               |   |   |   |   |   dom.py
+|               |   |   |   |   |   etree.py
+|               |   |   |   |   |   etree_lxml.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           base.cpython-36.pyc
+|               |   |   |   |           dom.cpython-36.pyc
+|               |   |   |   |           etree.cpython-36.pyc
+|               |   |   |   |           etree_lxml.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   +---treewalkers
+|               |   |   |   |   |   base.py
+|               |   |   |   |   |   dom.py
+|               |   |   |   |   |   etree.py
+|               |   |   |   |   |   etree_lxml.py
+|               |   |   |   |   |   genshi.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           base.cpython-36.pyc
+|               |   |   |   |           dom.cpython-36.pyc
+|               |   |   |   |           etree.cpython-36.pyc
+|               |   |   |   |           etree_lxml.cpython-36.pyc
+|               |   |   |   |           genshi.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   +---_trie
+|               |   |   |   |   |   datrie.py
+|               |   |   |   |   |   py.py
+|               |   |   |   |   |   _base.py
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           datrie.cpython-36.pyc
+|               |   |   |   |           py.cpython-36.pyc
+|               |   |   |   |           _base.cpython-36.pyc
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   \---__pycache__
+|               |   |   |           constants.cpython-36.pyc
+|               |   |   |           html5parser.cpython-36.pyc
+|               |   |   |           serializer.cpython-36.pyc
+|               |   |   |           _ihatexml.cpython-36.pyc
+|               |   |   |           _inputstream.cpython-36.pyc
+|               |   |   |           _tokenizer.cpython-36.pyc
+|               |   |   |           _utils.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---lockfile
+|               |   |   |   |   linklockfile.py
+|               |   |   |   |   mkdirlockfile.py
+|               |   |   |   |   pidlockfile.py
+|               |   |   |   |   sqlitelockfile.py
+|               |   |   |   |   symlinklockfile.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           linklockfile.cpython-36.pyc
+|               |   |   |           mkdirlockfile.cpython-36.pyc
+|               |   |   |           pidlockfile.cpython-36.pyc
+|               |   |   |           sqlitelockfile.cpython-36.pyc
+|               |   |   |           symlinklockfile.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---packaging
+|               |   |   |   |   markers.py
+|               |   |   |   |   requirements.py
+|               |   |   |   |   specifiers.py
+|               |   |   |   |   utils.py
+|               |   |   |   |   version.py
+|               |   |   |   |   _compat.py
+|               |   |   |   |   _structures.py
+|               |   |   |   |   __about__.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           markers.cpython-36.pyc
+|               |   |   |           requirements.cpython-36.pyc
+|               |   |   |           specifiers.cpython-36.pyc
+|               |   |   |           utils.cpython-36.pyc
+|               |   |   |           version.cpython-36.pyc
+|               |   |   |           _compat.cpython-36.pyc
+|               |   |   |           _structures.cpython-36.pyc
+|               |   |   |           __about__.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---pkg_resources
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---progress
+|               |   |   |   |   bar.py
+|               |   |   |   |   counter.py
+|               |   |   |   |   helpers.py
+|               |   |   |   |   spinner.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           bar.cpython-36.pyc
+|               |   |   |           counter.cpython-36.pyc
+|               |   |   |           helpers.cpython-36.pyc
+|               |   |   |           spinner.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---requests
+|               |   |   |   |   adapters.py
+|               |   |   |   |   api.py
+|               |   |   |   |   auth.py
+|               |   |   |   |   cacert.pem
+|               |   |   |   |   certs.py
+|               |   |   |   |   compat.py
+|               |   |   |   |   cookies.py
+|               |   |   |   |   exceptions.py
+|               |   |   |   |   hooks.py
+|               |   |   |   |   models.py
+|               |   |   |   |   sessions.py
+|               |   |   |   |   status_codes.py
+|               |   |   |   |   structures.py
+|               |   |   |   |   utils.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   +---packages
+|               |   |   |   |   |   __init__.py
+|               |   |   |   |   |   
+|               |   |   |   |   +---chardet
+|               |   |   |   |   |   |   big5freq.py
+|               |   |   |   |   |   |   big5prober.py
+|               |   |   |   |   |   |   chardetect.py
+|               |   |   |   |   |   |   chardistribution.py
+|               |   |   |   |   |   |   charsetgroupprober.py
+|               |   |   |   |   |   |   charsetprober.py
+|               |   |   |   |   |   |   codingstatemachine.py
+|               |   |   |   |   |   |   compat.py
+|               |   |   |   |   |   |   constants.py
+|               |   |   |   |   |   |   cp949prober.py
+|               |   |   |   |   |   |   escprober.py
+|               |   |   |   |   |   |   escsm.py
+|               |   |   |   |   |   |   eucjpprober.py
+|               |   |   |   |   |   |   euckrfreq.py
+|               |   |   |   |   |   |   euckrprober.py
+|               |   |   |   |   |   |   euctwfreq.py
+|               |   |   |   |   |   |   euctwprober.py
+|               |   |   |   |   |   |   gb2312freq.py
+|               |   |   |   |   |   |   gb2312prober.py
+|               |   |   |   |   |   |   hebrewprober.py
+|               |   |   |   |   |   |   jisfreq.py
+|               |   |   |   |   |   |   jpcntx.py
+|               |   |   |   |   |   |   langbulgarianmodel.py
+|               |   |   |   |   |   |   langcyrillicmodel.py
+|               |   |   |   |   |   |   langgreekmodel.py
+|               |   |   |   |   |   |   langhebrewmodel.py
+|               |   |   |   |   |   |   langhungarianmodel.py
+|               |   |   |   |   |   |   langthaimodel.py
+|               |   |   |   |   |   |   latin1prober.py
+|               |   |   |   |   |   |   mbcharsetprober.py
+|               |   |   |   |   |   |   mbcsgroupprober.py
+|               |   |   |   |   |   |   mbcssm.py
+|               |   |   |   |   |   |   sbcharsetprober.py
+|               |   |   |   |   |   |   sbcsgroupprober.py
+|               |   |   |   |   |   |   sjisprober.py
+|               |   |   |   |   |   |   universaldetector.py
+|               |   |   |   |   |   |   utf8prober.py
+|               |   |   |   |   |   |   __init__.py
+|               |   |   |   |   |   |   
+|               |   |   |   |   |   \---__pycache__
+|               |   |   |   |   |           big5freq.cpython-36.pyc
+|               |   |   |   |   |           big5prober.cpython-36.pyc
+|               |   |   |   |   |           chardetect.cpython-36.pyc
+|               |   |   |   |   |           chardistribution.cpython-36.pyc
+|               |   |   |   |   |           charsetgroupprober.cpython-36.pyc
+|               |   |   |   |   |           charsetprober.cpython-36.pyc
+|               |   |   |   |   |           codingstatemachine.cpython-36.pyc
+|               |   |   |   |   |           compat.cpython-36.pyc
+|               |   |   |   |   |           constants.cpython-36.pyc
+|               |   |   |   |   |           cp949prober.cpython-36.pyc
+|               |   |   |   |   |           escprober.cpython-36.pyc
+|               |   |   |   |   |           escsm.cpython-36.pyc
+|               |   |   |   |   |           eucjpprober.cpython-36.pyc
+|               |   |   |   |   |           euckrfreq.cpython-36.pyc
+|               |   |   |   |   |           euckrprober.cpython-36.pyc
+|               |   |   |   |   |           euctwfreq.cpython-36.pyc
+|               |   |   |   |   |           euctwprober.cpython-36.pyc
+|               |   |   |   |   |           gb2312freq.cpython-36.pyc
+|               |   |   |   |   |           gb2312prober.cpython-36.pyc
+|               |   |   |   |   |           hebrewprober.cpython-36.pyc
+|               |   |   |   |   |           jisfreq.cpython-36.pyc
+|               |   |   |   |   |           jpcntx.cpython-36.pyc
+|               |   |   |   |   |           langbulgarianmodel.cpython-36.pyc
+|               |   |   |   |   |           langcyrillicmodel.cpython-36.pyc
+|               |   |   |   |   |           langgreekmodel.cpython-36.pyc
+|               |   |   |   |   |           langhebrewmodel.cpython-36.pyc
+|               |   |   |   |   |           langhungarianmodel.cpython-36.pyc
+|               |   |   |   |   |           langthaimodel.cpython-36.pyc
+|               |   |   |   |   |           latin1prober.cpython-36.pyc
+|               |   |   |   |   |           mbcharsetprober.cpython-36.pyc
+|               |   |   |   |   |           mbcsgroupprober.cpython-36.pyc
+|               |   |   |   |   |           mbcssm.cpython-36.pyc
+|               |   |   |   |   |           sbcharsetprober.cpython-36.pyc
+|               |   |   |   |   |           sbcsgroupprober.cpython-36.pyc
+|               |   |   |   |   |           sjisprober.cpython-36.pyc
+|               |   |   |   |   |           universaldetector.cpython-36.pyc
+|               |   |   |   |   |           utf8prober.cpython-36.pyc
+|               |   |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |   |           
+|               |   |   |   |   +---urllib3
+|               |   |   |   |   |   |   connection.py
+|               |   |   |   |   |   |   connectionpool.py
+|               |   |   |   |   |   |   exceptions.py
+|               |   |   |   |   |   |   fields.py
+|               |   |   |   |   |   |   filepost.py
+|               |   |   |   |   |   |   poolmanager.py
+|               |   |   |   |   |   |   request.py
+|               |   |   |   |   |   |   response.py
+|               |   |   |   |   |   |   _collections.py
+|               |   |   |   |   |   |   __init__.py
+|               |   |   |   |   |   |   
+|               |   |   |   |   |   +---contrib
+|               |   |   |   |   |   |   |   appengine.py
+|               |   |   |   |   |   |   |   ntlmpool.py
+|               |   |   |   |   |   |   |   pyopenssl.py
+|               |   |   |   |   |   |   |   socks.py
+|               |   |   |   |   |   |   |   __init__.py
+|               |   |   |   |   |   |   |   
+|               |   |   |   |   |   |   \---__pycache__
+|               |   |   |   |   |   |           appengine.cpython-36.pyc
+|               |   |   |   |   |   |           ntlmpool.cpython-36.pyc
+|               |   |   |   |   |   |           pyopenssl.cpython-36.pyc
+|               |   |   |   |   |   |           socks.cpython-36.pyc
+|               |   |   |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |   |   |           
+|               |   |   |   |   |   +---packages
+|               |   |   |   |   |   |   |   ordered_dict.py
+|               |   |   |   |   |   |   |   six.py
+|               |   |   |   |   |   |   |   __init__.py
+|               |   |   |   |   |   |   |   
+|               |   |   |   |   |   |   +---ssl_match_hostname
+|               |   |   |   |   |   |   |   |   _implementation.py
+|               |   |   |   |   |   |   |   |   __init__.py
+|               |   |   |   |   |   |   |   |   
+|               |   |   |   |   |   |   |   \---__pycache__
+|               |   |   |   |   |   |   |           _implementation.cpython-36.pyc
+|               |   |   |   |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |   |   |   |           
+|               |   |   |   |   |   |   \---__pycache__
+|               |   |   |   |   |   |           ordered_dict.cpython-36.pyc
+|               |   |   |   |   |   |           six.cpython-36.pyc
+|               |   |   |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |   |   |           
+|               |   |   |   |   |   +---util
+|               |   |   |   |   |   |   |   connection.py
+|               |   |   |   |   |   |   |   request.py
+|               |   |   |   |   |   |   |   response.py
+|               |   |   |   |   |   |   |   retry.py
+|               |   |   |   |   |   |   |   ssl_.py
+|               |   |   |   |   |   |   |   timeout.py
+|               |   |   |   |   |   |   |   url.py
+|               |   |   |   |   |   |   |   __init__.py
+|               |   |   |   |   |   |   |   
+|               |   |   |   |   |   |   \---__pycache__
+|               |   |   |   |   |   |           connection.cpython-36.pyc
+|               |   |   |   |   |   |           request.cpython-36.pyc
+|               |   |   |   |   |   |           response.cpython-36.pyc
+|               |   |   |   |   |   |           retry.cpython-36.pyc
+|               |   |   |   |   |   |           ssl_.cpython-36.pyc
+|               |   |   |   |   |   |           timeout.cpython-36.pyc
+|               |   |   |   |   |   |           url.cpython-36.pyc
+|               |   |   |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |   |   |           
+|               |   |   |   |   |   \---__pycache__
+|               |   |   |   |   |           connection.cpython-36.pyc
+|               |   |   |   |   |           connectionpool.cpython-36.pyc
+|               |   |   |   |   |           exceptions.cpython-36.pyc
+|               |   |   |   |   |           fields.cpython-36.pyc
+|               |   |   |   |   |           filepost.cpython-36.pyc
+|               |   |   |   |   |           poolmanager.cpython-36.pyc
+|               |   |   |   |   |           request.cpython-36.pyc
+|               |   |   |   |   |           response.cpython-36.pyc
+|               |   |   |   |   |           _collections.cpython-36.pyc
+|               |   |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |   |           
+|               |   |   |   |   \---__pycache__
+|               |   |   |   |           __init__.cpython-36.pyc
+|               |   |   |   |           
+|               |   |   |   \---__pycache__
+|               |   |   |           adapters.cpython-36.pyc
+|               |   |   |           api.cpython-36.pyc
+|               |   |   |           auth.cpython-36.pyc
+|               |   |   |           certs.cpython-36.pyc
+|               |   |   |           compat.cpython-36.pyc
+|               |   |   |           cookies.cpython-36.pyc
+|               |   |   |           exceptions.cpython-36.pyc
+|               |   |   |           hooks.cpython-36.pyc
+|               |   |   |           models.cpython-36.pyc
+|               |   |   |           sessions.cpython-36.pyc
+|               |   |   |           status_codes.cpython-36.pyc
+|               |   |   |           structures.cpython-36.pyc
+|               |   |   |           utils.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---webencodings
+|               |   |   |   |   labels.py
+|               |   |   |   |   mklabels.py
+|               |   |   |   |   tests.py
+|               |   |   |   |   x_user_defined.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           labels.cpython-36.pyc
+|               |   |   |           mklabels.cpython-36.pyc
+|               |   |   |           tests.cpython-36.pyc
+|               |   |   |           x_user_defined.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---__pycache__
+|               |   |           appdirs.cpython-36.pyc
+|               |   |           distro.cpython-36.pyc
+|               |   |           ipaddress.cpython-36.pyc
+|               |   |           ordereddict.cpython-36.pyc
+|               |   |           pyparsing.cpython-36.pyc
+|               |   |           re-vendor.cpython-36.pyc
+|               |   |           retrying.cpython-36.pyc
+|               |   |           six.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           basecommand.cpython-36.pyc
+|               |           baseparser.cpython-36.pyc
+|               |           cmdoptions.cpython-36.pyc
+|               |           download.cpython-36.pyc
+|               |           exceptions.cpython-36.pyc
+|               |           index.cpython-36.pyc
+|               |           locations.cpython-36.pyc
+|               |           pep425tags.cpython-36.pyc
+|               |           status_codes.cpython-36.pyc
+|               |           wheel.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           __main__.cpython-36.pyc
+|               |           
+|               +---pip-9.0.1.dist-info
+|               |       DESCRIPTION.rst
+|               |       entry_points.txt
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---pkg_resources
+|               |   |   __init__.py
+|               |   |   
+|               |   +---extern
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---_vendor
+|               |   |   |   appdirs.py
+|               |   |   |   pyparsing.py
+|               |   |   |   six.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---packaging
+|               |   |   |   |   markers.py
+|               |   |   |   |   requirements.py
+|               |   |   |   |   specifiers.py
+|               |   |   |   |   utils.py
+|               |   |   |   |   version.py
+|               |   |   |   |   _compat.py
+|               |   |   |   |   _structures.py
+|               |   |   |   |   __about__.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           markers.cpython-36.pyc
+|               |   |   |           requirements.cpython-36.pyc
+|               |   |   |           specifiers.cpython-36.pyc
+|               |   |   |           utils.cpython-36.pyc
+|               |   |   |           version.cpython-36.pyc
+|               |   |   |           _compat.cpython-36.pyc
+|               |   |   |           _structures.cpython-36.pyc
+|               |   |   |           __about__.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---__pycache__
+|               |   |           appdirs.cpython-36.pyc
+|               |   |           pyparsing.cpython-36.pyc
+|               |   |           six.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---python_dateutil-2.7.2.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       LICENSE.txt
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       zip-safe
+|               |       
+|               +---python_editor-1.0.3-py3.6.egg-info
+|               |       dependency_links.txt
+|               |       installed-files.txt
+|               |       PKG-INFO
+|               |       SOURCES.txt
+|               |       top_level.txt
+|               |       
+|               +---setuptools
+|               |   |   archive_util.py
+|               |   |   cli-32.exe
+|               |   |   cli-64.exe
+|               |   |   cli.exe
+|               |   |   depends.py
+|               |   |   dist.py
+|               |   |   extension.py
+|               |   |   glob.py
+|               |   |   gui-32.exe
+|               |   |   gui-64.exe
+|               |   |   gui.exe
+|               |   |   launch.py
+|               |   |   lib2to3_ex.py
+|               |   |   monkey.py
+|               |   |   msvc.py
+|               |   |   namespaces.py
+|               |   |   package_index.py
+|               |   |   py26compat.py
+|               |   |   py27compat.py
+|               |   |   py31compat.py
+|               |   |   sandbox.py
+|               |   |   script (dev).tmpl
+|               |   |   script.tmpl
+|               |   |   site-patch.py
+|               |   |   ssl_support.py
+|               |   |   unicode_utils.py
+|               |   |   version.py
+|               |   |   windows_support.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---command
+|               |   |   |   alias.py
+|               |   |   |   bdist_egg.py
+|               |   |   |   bdist_rpm.py
+|               |   |   |   bdist_wininst.py
+|               |   |   |   build_ext.py
+|               |   |   |   build_py.py
+|               |   |   |   develop.py
+|               |   |   |   easy_install.py
+|               |   |   |   egg_info.py
+|               |   |   |   install.py
+|               |   |   |   install_egg_info.py
+|               |   |   |   install_lib.py
+|               |   |   |   install_scripts.py
+|               |   |   |   launcher manifest.xml
+|               |   |   |   py36compat.py
+|               |   |   |   register.py
+|               |   |   |   rotate.py
+|               |   |   |   saveopts.py
+|               |   |   |   sdist.py
+|               |   |   |   setopt.py
+|               |   |   |   test.py
+|               |   |   |   upload.py
+|               |   |   |   upload_docs.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           alias.cpython-36.pyc
+|               |   |           bdist_egg.cpython-36.pyc
+|               |   |           bdist_rpm.cpython-36.pyc
+|               |   |           bdist_wininst.cpython-36.pyc
+|               |   |           build_ext.cpython-36.pyc
+|               |   |           build_py.cpython-36.pyc
+|               |   |           develop.cpython-36.pyc
+|               |   |           easy_install.cpython-36.pyc
+|               |   |           egg_info.cpython-36.pyc
+|               |   |           install.cpython-36.pyc
+|               |   |           install_egg_info.cpython-36.pyc
+|               |   |           install_lib.cpython-36.pyc
+|               |   |           install_scripts.cpython-36.pyc
+|               |   |           py36compat.cpython-36.pyc
+|               |   |           register.cpython-36.pyc
+|               |   |           rotate.cpython-36.pyc
+|               |   |           saveopts.cpython-36.pyc
+|               |   |           sdist.cpython-36.pyc
+|               |   |           setopt.cpython-36.pyc
+|               |   |           test.cpython-36.pyc
+|               |   |           upload.cpython-36.pyc
+|               |   |           upload_docs.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---extern
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           archive_util.cpython-36.pyc
+|               |           depends.cpython-36.pyc
+|               |           dist.cpython-36.pyc
+|               |           extension.cpython-36.pyc
+|               |           glob.cpython-36.pyc
+|               |           launch.cpython-36.pyc
+|               |           lib2to3_ex.cpython-36.pyc
+|               |           monkey.cpython-36.pyc
+|               |           msvc.cpython-36.pyc
+|               |           namespaces.cpython-36.pyc
+|               |           package_index.cpython-36.pyc
+|               |           py26compat.cpython-36.pyc
+|               |           py27compat.cpython-36.pyc
+|               |           py31compat.cpython-36.pyc
+|               |           sandbox.cpython-36.pyc
+|               |           site-patch.cpython-36.pyc
+|               |           ssl_support.cpython-36.pyc
+|               |           unicode_utils.cpython-36.pyc
+|               |           version.cpython-36.pyc
+|               |           windows_support.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---setuptools-28.8.0.dist-info
+|               |       dependency_links.txt
+|               |       DESCRIPTION.rst
+|               |       entry_points.txt
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       zip-safe
+|               |       
+|               +---six-1.11.0.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               +---sqlalchemy
+|               |   |   cprocessors.cpython-36m-x86_64-linux-gnu.so
+|               |   |   cresultproxy.cpython-36m-x86_64-linux-gnu.so
+|               |   |   cutils.cpython-36m-x86_64-linux-gnu.so
+|               |   |   events.py
+|               |   |   exc.py
+|               |   |   inspection.py
+|               |   |   interfaces.py
+|               |   |   log.py
+|               |   |   pool.py
+|               |   |   processors.py
+|               |   |   schema.py
+|               |   |   types.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---connectors
+|               |   |   |   mxodbc.py
+|               |   |   |   pyodbc.py
+|               |   |   |   zxJDBC.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           mxodbc.cpython-36.pyc
+|               |   |           pyodbc.cpython-36.pyc
+|               |   |           zxJDBC.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---databases
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---dialects
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---firebird
+|               |   |   |   |   base.py
+|               |   |   |   |   fdb.py
+|               |   |   |   |   kinterbasdb.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           fdb.cpython-36.pyc
+|               |   |   |           kinterbasdb.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---mssql
+|               |   |   |   |   adodbapi.py
+|               |   |   |   |   base.py
+|               |   |   |   |   information_schema.py
+|               |   |   |   |   mxodbc.py
+|               |   |   |   |   pymssql.py
+|               |   |   |   |   pyodbc.py
+|               |   |   |   |   zxjdbc.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           adodbapi.cpython-36.pyc
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           information_schema.cpython-36.pyc
+|               |   |   |           mxodbc.cpython-36.pyc
+|               |   |   |           pymssql.cpython-36.pyc
+|               |   |   |           pyodbc.cpython-36.pyc
+|               |   |   |           zxjdbc.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---mysql
+|               |   |   |   |   base.py
+|               |   |   |   |   cymysql.py
+|               |   |   |   |   dml.py
+|               |   |   |   |   enumerated.py
+|               |   |   |   |   gaerdbms.py
+|               |   |   |   |   json.py
+|               |   |   |   |   mysqlconnector.py
+|               |   |   |   |   mysqldb.py
+|               |   |   |   |   oursql.py
+|               |   |   |   |   pymysql.py
+|               |   |   |   |   pyodbc.py
+|               |   |   |   |   reflection.py
+|               |   |   |   |   types.py
+|               |   |   |   |   zxjdbc.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           cymysql.cpython-36.pyc
+|               |   |   |           dml.cpython-36.pyc
+|               |   |   |           enumerated.cpython-36.pyc
+|               |   |   |           gaerdbms.cpython-36.pyc
+|               |   |   |           json.cpython-36.pyc
+|               |   |   |           mysqlconnector.cpython-36.pyc
+|               |   |   |           mysqldb.cpython-36.pyc
+|               |   |   |           oursql.cpython-36.pyc
+|               |   |   |           pymysql.cpython-36.pyc
+|               |   |   |           pyodbc.cpython-36.pyc
+|               |   |   |           reflection.cpython-36.pyc
+|               |   |   |           types.cpython-36.pyc
+|               |   |   |           zxjdbc.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---oracle
+|               |   |   |   |   base.py
+|               |   |   |   |   cx_oracle.py
+|               |   |   |   |   zxjdbc.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           cx_oracle.cpython-36.pyc
+|               |   |   |           zxjdbc.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---postgresql
+|               |   |   |   |   array.py
+|               |   |   |   |   base.py
+|               |   |   |   |   dml.py
+|               |   |   |   |   ext.py
+|               |   |   |   |   hstore.py
+|               |   |   |   |   json.py
+|               |   |   |   |   pg8000.py
+|               |   |   |   |   psycopg2.py
+|               |   |   |   |   psycopg2cffi.py
+|               |   |   |   |   pygresql.py
+|               |   |   |   |   pypostgresql.py
+|               |   |   |   |   ranges.py
+|               |   |   |   |   zxjdbc.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           array.cpython-36.pyc
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           dml.cpython-36.pyc
+|               |   |   |           ext.cpython-36.pyc
+|               |   |   |           hstore.cpython-36.pyc
+|               |   |   |           json.cpython-36.pyc
+|               |   |   |           pg8000.cpython-36.pyc
+|               |   |   |           psycopg2.cpython-36.pyc
+|               |   |   |           psycopg2cffi.cpython-36.pyc
+|               |   |   |           pygresql.cpython-36.pyc
+|               |   |   |           pypostgresql.cpython-36.pyc
+|               |   |   |           ranges.cpython-36.pyc
+|               |   |   |           zxjdbc.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---sqlite
+|               |   |   |   |   base.py
+|               |   |   |   |   pysqlcipher.py
+|               |   |   |   |   pysqlite.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           pysqlcipher.cpython-36.pyc
+|               |   |   |           pysqlite.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---sybase
+|               |   |   |   |   base.py
+|               |   |   |   |   mxodbc.py
+|               |   |   |   |   pyodbc.py
+|               |   |   |   |   pysybase.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           mxodbc.cpython-36.pyc
+|               |   |   |           pyodbc.cpython-36.pyc
+|               |   |   |           pysybase.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---__pycache__
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---engine
+|               |   |   |   base.py
+|               |   |   |   default.py
+|               |   |   |   interfaces.py
+|               |   |   |   reflection.py
+|               |   |   |   result.py
+|               |   |   |   strategies.py
+|               |   |   |   threadlocal.py
+|               |   |   |   url.py
+|               |   |   |   util.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           base.cpython-36.pyc
+|               |   |           default.cpython-36.pyc
+|               |   |           interfaces.cpython-36.pyc
+|               |   |           reflection.cpython-36.pyc
+|               |   |           result.cpython-36.pyc
+|               |   |           strategies.cpython-36.pyc
+|               |   |           threadlocal.cpython-36.pyc
+|               |   |           url.cpython-36.pyc
+|               |   |           util.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---event
+|               |   |   |   api.py
+|               |   |   |   attr.py
+|               |   |   |   base.py
+|               |   |   |   legacy.py
+|               |   |   |   registry.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           api.cpython-36.pyc
+|               |   |           attr.cpython-36.pyc
+|               |   |           base.cpython-36.pyc
+|               |   |           legacy.cpython-36.pyc
+|               |   |           registry.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---ext
+|               |   |   |   associationproxy.py
+|               |   |   |   automap.py
+|               |   |   |   baked.py
+|               |   |   |   compiler.py
+|               |   |   |   horizontal_shard.py
+|               |   |   |   hybrid.py
+|               |   |   |   indexable.py
+|               |   |   |   instrumentation.py
+|               |   |   |   mutable.py
+|               |   |   |   orderinglist.py
+|               |   |   |   serializer.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---declarative
+|               |   |   |   |   api.py
+|               |   |   |   |   base.py
+|               |   |   |   |   clsregistry.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           api.cpython-36.pyc
+|               |   |   |           base.cpython-36.pyc
+|               |   |   |           clsregistry.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---__pycache__
+|               |   |           associationproxy.cpython-36.pyc
+|               |   |           automap.cpython-36.pyc
+|               |   |           baked.cpython-36.pyc
+|               |   |           compiler.cpython-36.pyc
+|               |   |           horizontal_shard.cpython-36.pyc
+|               |   |           hybrid.cpython-36.pyc
+|               |   |           indexable.cpython-36.pyc
+|               |   |           instrumentation.cpython-36.pyc
+|               |   |           mutable.cpython-36.pyc
+|               |   |           orderinglist.cpython-36.pyc
+|               |   |           serializer.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---orm
+|               |   |   |   attributes.py
+|               |   |   |   base.py
+|               |   |   |   collections.py
+|               |   |   |   dependency.py
+|               |   |   |   deprecated_interfaces.py
+|               |   |   |   descriptor_props.py
+|               |   |   |   dynamic.py
+|               |   |   |   evaluator.py
+|               |   |   |   events.py
+|               |   |   |   exc.py
+|               |   |   |   identity.py
+|               |   |   |   instrumentation.py
+|               |   |   |   interfaces.py
+|               |   |   |   loading.py
+|               |   |   |   mapper.py
+|               |   |   |   path_registry.py
+|               |   |   |   persistence.py
+|               |   |   |   properties.py
+|               |   |   |   query.py
+|               |   |   |   relationships.py
+|               |   |   |   scoping.py
+|               |   |   |   session.py
+|               |   |   |   state.py
+|               |   |   |   strategies.py
+|               |   |   |   strategy_options.py
+|               |   |   |   sync.py
+|               |   |   |   unitofwork.py
+|               |   |   |   util.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           attributes.cpython-36.pyc
+|               |   |           base.cpython-36.pyc
+|               |   |           collections.cpython-36.pyc
+|               |   |           dependency.cpython-36.pyc
+|               |   |           deprecated_interfaces.cpython-36.pyc
+|               |   |           descriptor_props.cpython-36.pyc
+|               |   |           dynamic.cpython-36.pyc
+|               |   |           evaluator.cpython-36.pyc
+|               |   |           events.cpython-36.pyc
+|               |   |           exc.cpython-36.pyc
+|               |   |           identity.cpython-36.pyc
+|               |   |           instrumentation.cpython-36.pyc
+|               |   |           interfaces.cpython-36.pyc
+|               |   |           loading.cpython-36.pyc
+|               |   |           mapper.cpython-36.pyc
+|               |   |           path_registry.cpython-36.pyc
+|               |   |           persistence.cpython-36.pyc
+|               |   |           properties.cpython-36.pyc
+|               |   |           query.cpython-36.pyc
+|               |   |           relationships.cpython-36.pyc
+|               |   |           scoping.cpython-36.pyc
+|               |   |           session.cpython-36.pyc
+|               |   |           state.cpython-36.pyc
+|               |   |           strategies.cpython-36.pyc
+|               |   |           strategy_options.cpython-36.pyc
+|               |   |           sync.cpython-36.pyc
+|               |   |           unitofwork.cpython-36.pyc
+|               |   |           util.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---sql
+|               |   |   |   annotation.py
+|               |   |   |   base.py
+|               |   |   |   compiler.py
+|               |   |   |   crud.py
+|               |   |   |   ddl.py
+|               |   |   |   default_comparator.py
+|               |   |   |   dml.py
+|               |   |   |   elements.py
+|               |   |   |   expression.py
+|               |   |   |   functions.py
+|               |   |   |   naming.py
+|               |   |   |   operators.py
+|               |   |   |   schema.py
+|               |   |   |   selectable.py
+|               |   |   |   sqltypes.py
+|               |   |   |   type_api.py
+|               |   |   |   util.py
+|               |   |   |   visitors.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           annotation.cpython-36.pyc
+|               |   |           base.cpython-36.pyc
+|               |   |           compiler.cpython-36.pyc
+|               |   |           crud.cpython-36.pyc
+|               |   |           ddl.cpython-36.pyc
+|               |   |           default_comparator.cpython-36.pyc
+|               |   |           dml.cpython-36.pyc
+|               |   |           elements.cpython-36.pyc
+|               |   |           expression.cpython-36.pyc
+|               |   |           functions.cpython-36.pyc
+|               |   |           naming.cpython-36.pyc
+|               |   |           operators.cpython-36.pyc
+|               |   |           schema.cpython-36.pyc
+|               |   |           selectable.cpython-36.pyc
+|               |   |           sqltypes.cpython-36.pyc
+|               |   |           type_api.cpython-36.pyc
+|               |   |           util.cpython-36.pyc
+|               |   |           visitors.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---testing
+|               |   |   |   assertions.py
+|               |   |   |   assertsql.py
+|               |   |   |   config.py
+|               |   |   |   engines.py
+|               |   |   |   entities.py
+|               |   |   |   exclusions.py
+|               |   |   |   fixtures.py
+|               |   |   |   mock.py
+|               |   |   |   pickleable.py
+|               |   |   |   profiling.py
+|               |   |   |   provision.py
+|               |   |   |   replay_fixture.py
+|               |   |   |   requirements.py
+|               |   |   |   runner.py
+|               |   |   |   schema.py
+|               |   |   |   util.py
+|               |   |   |   warnings.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---plugin
+|               |   |   |   |   bootstrap.py
+|               |   |   |   |   noseplugin.py
+|               |   |   |   |   plugin_base.py
+|               |   |   |   |   pytestplugin.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           bootstrap.cpython-36.pyc
+|               |   |   |           noseplugin.cpython-36.pyc
+|               |   |   |           plugin_base.cpython-36.pyc
+|               |   |   |           pytestplugin.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   +---suite
+|               |   |   |   |   test_ddl.py
+|               |   |   |   |   test_dialect.py
+|               |   |   |   |   test_insert.py
+|               |   |   |   |   test_reflection.py
+|               |   |   |   |   test_results.py
+|               |   |   |   |   test_select.py
+|               |   |   |   |   test_sequence.py
+|               |   |   |   |   test_types.py
+|               |   |   |   |   test_update_delete.py
+|               |   |   |   |   __init__.py
+|               |   |   |   |   
+|               |   |   |   \---__pycache__
+|               |   |   |           test_ddl.cpython-36.pyc
+|               |   |   |           test_dialect.cpython-36.pyc
+|               |   |   |           test_insert.cpython-36.pyc
+|               |   |   |           test_reflection.cpython-36.pyc
+|               |   |   |           test_results.cpython-36.pyc
+|               |   |   |           test_select.cpython-36.pyc
+|               |   |   |           test_sequence.cpython-36.pyc
+|               |   |   |           test_types.cpython-36.pyc
+|               |   |   |           test_update_delete.cpython-36.pyc
+|               |   |   |           __init__.cpython-36.pyc
+|               |   |   |           
+|               |   |   \---__pycache__
+|               |   |           assertions.cpython-36.pyc
+|               |   |           assertsql.cpython-36.pyc
+|               |   |           config.cpython-36.pyc
+|               |   |           engines.cpython-36.pyc
+|               |   |           entities.cpython-36.pyc
+|               |   |           exclusions.cpython-36.pyc
+|               |   |           fixtures.cpython-36.pyc
+|               |   |           mock.cpython-36.pyc
+|               |   |           pickleable.cpython-36.pyc
+|               |   |           profiling.cpython-36.pyc
+|               |   |           provision.cpython-36.pyc
+|               |   |           replay_fixture.cpython-36.pyc
+|               |   |           requirements.cpython-36.pyc
+|               |   |           runner.cpython-36.pyc
+|               |   |           schema.cpython-36.pyc
+|               |   |           util.cpython-36.pyc
+|               |   |           warnings.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---util
+|               |   |   |   compat.py
+|               |   |   |   deprecations.py
+|               |   |   |   langhelpers.py
+|               |   |   |   queue.py
+|               |   |   |   topological.py
+|               |   |   |   _collections.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           compat.cpython-36.pyc
+|               |   |           deprecations.cpython-36.pyc
+|               |   |           langhelpers.cpython-36.pyc
+|               |   |           queue.cpython-36.pyc
+|               |   |           topological.cpython-36.pyc
+|               |   |           _collections.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           events.cpython-36.pyc
+|               |           exc.cpython-36.pyc
+|               |           inspection.cpython-36.pyc
+|               |           interfaces.cpython-36.pyc
+|               |           log.cpython-36.pyc
+|               |           pool.cpython-36.pyc
+|               |           processors.cpython-36.pyc
+|               |           schema.cpython-36.pyc
+|               |           types.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---SQLAlchemy-1.2.6-py3.6.egg-info
+|               |       dependency_links.txt
+|               |       installed-files.txt
+|               |       PKG-INFO
+|               |       requires.txt
+|               |       SOURCES.txt
+|               |       top_level.txt
+|               |       
+|               +---werkzeug
+|               |   |   datastructures.py
+|               |   |   exceptions.py
+|               |   |   filesystem.py
+|               |   |   formparser.py
+|               |   |   http.py
+|               |   |   local.py
+|               |   |   posixemulation.py
+|               |   |   routing.py
+|               |   |   script.py
+|               |   |   security.py
+|               |   |   serving.py
+|               |   |   test.py
+|               |   |   testapp.py
+|               |   |   urls.py
+|               |   |   useragents.py
+|               |   |   utils.py
+|               |   |   websocket.py
+|               |   |   wrappers.py
+|               |   |   wsgi.py
+|               |   |   _compat.py
+|               |   |   _internal.py
+|               |   |   _reloader.py
+|               |   |   __init__.py
+|               |   |   
+|               |   +---contrib
+|               |   |   |   atom.py
+|               |   |   |   cache.py
+|               |   |   |   fixers.py
+|               |   |   |   iterio.py
+|               |   |   |   jsrouting.py
+|               |   |   |   limiter.py
+|               |   |   |   lint.py
+|               |   |   |   profiler.py
+|               |   |   |   securecookie.py
+|               |   |   |   sessions.py
+|               |   |   |   testtools.py
+|               |   |   |   wrappers.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   \---__pycache__
+|               |   |           atom.cpython-36.pyc
+|               |   |           cache.cpython-36.pyc
+|               |   |           fixers.cpython-36.pyc
+|               |   |           iterio.cpython-36.pyc
+|               |   |           jsrouting.cpython-36.pyc
+|               |   |           limiter.cpython-36.pyc
+|               |   |           lint.cpython-36.pyc
+|               |   |           profiler.cpython-36.pyc
+|               |   |           securecookie.cpython-36.pyc
+|               |   |           sessions.cpython-36.pyc
+|               |   |           testtools.cpython-36.pyc
+|               |   |           wrappers.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   +---debug
+|               |   |   |   console.py
+|               |   |   |   repr.py
+|               |   |   |   tbtools.py
+|               |   |   |   __init__.py
+|               |   |   |   
+|               |   |   +---shared
+|               |   |   |       console.png
+|               |   |   |       debugger.js
+|               |   |   |       FONT_LICENSE
+|               |   |   |       jquery.js
+|               |   |   |       less.png
+|               |   |   |       more.png
+|               |   |   |       source.png
+|               |   |   |       style.css
+|               |   |   |       ubuntu.ttf
+|               |   |   |       
+|               |   |   \---__pycache__
+|               |   |           console.cpython-36.pyc
+|               |   |           repr.cpython-36.pyc
+|               |   |           tbtools.cpython-36.pyc
+|               |   |           __init__.cpython-36.pyc
+|               |   |           
+|               |   \---__pycache__
+|               |           datastructures.cpython-36.pyc
+|               |           exceptions.cpython-36.pyc
+|               |           filesystem.cpython-36.pyc
+|               |           formparser.cpython-36.pyc
+|               |           http.cpython-36.pyc
+|               |           local.cpython-36.pyc
+|               |           posixemulation.cpython-36.pyc
+|               |           routing.cpython-36.pyc
+|               |           script.cpython-36.pyc
+|               |           security.cpython-36.pyc
+|               |           serving.cpython-36.pyc
+|               |           test.cpython-36.pyc
+|               |           testapp.cpython-36.pyc
+|               |           urls.cpython-36.pyc
+|               |           useragents.cpython-36.pyc
+|               |           utils.cpython-36.pyc
+|               |           websocket.cpython-36.pyc
+|               |           wrappers.cpython-36.pyc
+|               |           wsgi.cpython-36.pyc
+|               |           _compat.cpython-36.pyc
+|               |           _internal.cpython-36.pyc
+|               |           _reloader.cpython-36.pyc
+|               |           __init__.cpython-36.pyc
+|               |           
+|               +---Werkzeug-0.14.1.dist-info
+|               |       DESCRIPTION.rst
+|               |       INSTALLER
+|               |       LICENSE.txt
+|               |       METADATA
+|               |       metadata.json
+|               |       RECORD
+|               |       top_level.txt
+|               |       WHEEL
+|               |       
+|               \---__pycache__
+|                       easy_install.cpython-36.pyc
+|                       editor.cpython-36.pyc
+|                       itsdangerous.cpython-36.pyc
+|                       six.cpython-36.pyc
+|                       
+\---__pycache__
+        config.cpython-36.pyc
+        interface.cpython-36.pyc
+        
