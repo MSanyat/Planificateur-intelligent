@@ -1,3 +1,5 @@
+
+
 import React, { Component } from 'react';
 import './App.css';
 import { withRouter } from 'react-router';
@@ -68,6 +70,7 @@ class App extends React.Component {
 			d_max: '',
 			max_escales: '',
 			resultat: [],
+			data: [],
         };
         this.handleDelete = this.handleDelete.bind(this);
         this.handleAddition = this.handleAddition.bind(this);
@@ -210,14 +213,24 @@ class App extends React.Component {
 							'd_max=', this.state.d_max);
 	alert(result);
 	console.log(tags_list)
-	var request = new Request(url.concat(result), {method:'GET', mode:'no-cors', headers : new Headers({
+	var request = new Request(url.concat(result), {method:'GET', headers : new Headers({
      'Authorization': 'Basic '+btoa('username:password'), 
      'Content-Type': 'application/x-www-form-urlencoded'
    },formData)});
-	
+// this.props.history.push({pathname : '/map',state : {detail : formData}})
+//browserHistory.push('/map',{data : formData});
 //	fetch('http://192.168.127.1:5000/auth/form?add_dep=Metz&add_arr=Bordeaux&escales=Paris&tags=Art&max_escales=3&optimisation=affinity&mode=driving&h_dep=08:00&h_arr=21:00&j_dep=01122018&j_arr=01122018&t_max=7200&d_max=300000', {method:'GET', mode:'no-cors', headers : new Headers(formData)})
 	fetch(request)
+	.then(function (response) {
+    console.log(response);
+    return response.json();
+});
+//	.then(response =>{response.json()})
+ //   .then((data) => {
+//    console.log(data);
+//})
 //	.then(response => response.json())
+//	.then(data => this.state.data=data).then(console.log(data));
 //	.then(data => console.log(data));
 
 	//.then(({ res }) => this.setState({ resultat: res })).then(alert(this.state.resultat));
@@ -258,10 +271,10 @@ class App extends React.Component {
 		}).then(data => {
 			const tab = data.results;
 			this.tab = tab;
-		});**/
-	
+		});
+	 **/
 	} 
-  
+ 
   render () {
 
 	const {tags, suggestions} = this.state;
@@ -464,4 +477,6 @@ class App extends React.Component {
     )
   }
 };
-export default withRouter(App);
+export default withRouter(App); 
+
+

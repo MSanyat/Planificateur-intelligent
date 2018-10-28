@@ -18,6 +18,7 @@ from flask_bootstrap import Bootstrap
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import LoginManager, UserMixin, login_user, login_required, logout_user, current_user
 from flask_mongoengine import MongoEngine, Document
+from flask_cors import CORS, cross_origin
 import pymongo as pm
 import computing.computing as cp
 import computing.plan as pl
@@ -53,6 +54,7 @@ app.config['SECRET_KEY'] = '7d441f27d441f27567d441f2b6176a'
 login_manager = LoginManager()
 app = Flask(__name__)
 app.config.from_object(__name__)
+cors=CORS(app)
 cfg = configparser.ConfigParser()
 cfg.read('conf.cfg')
 user = cfg.get('DB', 'user')
@@ -171,15 +173,17 @@ def register():
             'error': error
         })
 ###############################################################################
-@app.route('/auth/form', methods=['GET'])
+@app.route('/auth/form', methods=['GET','OPTIONS'])
+@cross_origin(headers=['Content-Type']) # Send Access-Control-Allow-Headers
 #@login_required
 def form():
     start = Node(1000, 0, None, 0, 0)
     target = Node(10000, 0, None, 0, 0)
+	## récupération des données du formulaire
     add_dep = request.args.get('add_dep')
     add_arr = request.args.get('add_arr')
     escales = request.args.getlist('escales')
-    tags = request.args.getlist('tags')
+    tags = request.args.getlist('tags') 
     max_escales = int(request.args.get('max_escales'))
     optimisation = request.args.get('optimisation')
     mode = request.args.get('mode')
@@ -188,9 +192,10 @@ def form():
     h_arr = request.args.get('h_arr')
     j_arr = request.args.get('j_arr')
     t_max = int(request.args.get('t_max'))
-    d_max = int(request.args.get('d_max'))
+    d_max = int(request.args.get('d_max')) 
+	## calcul des meilleurs villes
     overallScore = cp.get_classement(datas[2], tags, datas[1], datas[3], datas[0])[0]
-    print('avant dtfr')
+    all_escales = cp.get_way(tags, overallScore, max_escales, datas[0])
     dtfr = cp.get_graph_matrix(add_dep, add_arr, escales, mode, overallScore)
     print('avant if')
     if (optimisation == 'distance'):
@@ -199,19 +204,24 @@ def form():
         df_filtered = dtfr.loc[dtfr['time'] < t_max]
     elif (optimisation == 'affinity'):
         df_filtered = dtfr.loc[(dtfr['distance'] < d_max)]
-    print("PRINT!")
-    print(df_filtered)
     test = pl.get_path(start, target, dtfr, overallScore, optimisation, df_filtered, datas[0], add_dep, add_arr, escales)
+    print("fin du test")
+    print(test)
+    print("TEST 0")
+    print(test[0])
     try:
         trajet_id=test[1]
     except :
         return jsonify({'error': 'aucun trajet disponible'})
     trajet_donnees=test[0]
     time = sc.schedule_str(h_dep, h_arr, dtfr, trajet_id)
+    print("trajet créé")
     #Création du JSON contenant tout le trajet
     temp=[]
     for i in range(0, len(time)):
         temp.append({'id': int(trajet_id[i]), 'ville': trajet_donnees[i][0], 'note': float(trajet_donnees[i][1]), 'temps': time[i]})
+    print("TEMP") 
+    print(temp)
     return jsonify({'steps': temp})
 ###############################################################################
 @app.route('/auth/profile', methods=['POST'])

@@ -170,14 +170,17 @@ def get_path(start, target, df, overall_score, optimization, filtre, df_cities, 
     print(len(result_id))
     for obj in result_id:
         if(obj<100):
-            result_names.append([df_cities.iloc[int(obj)-1]['name'], round(overall_score.loc[overall_score['City_id']==obj]['Score'].values[0],2)])
             print("obj=",obj)
-            print(overall_score.loc[overall_score['City_id']==obj]['Score'])
+            print(len(overall_score.loc[overall_score['City_id']==obj]))
+            result_names.append([df_cities.iloc[int(obj)-1]['name'], round(overall_score.loc[overall_score['City_id']==obj]['Score'].values[0],2)])
         elif(obj==1000):
+            print("obj= ",obj)
             result_names.append([add_dep, 0])
         elif(obj==10000):
+            print("obj= ",obj)
             result_names.append([add_arr, 0])
         elif(obj >= 100000): 
+            print("obj= ",obj)
             idx=obj-100000
             result_names.append([waypoint[idx], 0])
     return (result_names, result_id)

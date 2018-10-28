@@ -326,7 +326,6 @@ def get_classement(df_placeTypes, tab_tags, df_types, df_similarities, df_cities
     #Mesure de similarités avec les points d'intérêts
     for i in range(0, n):
         user_tags.append(int(df_types.index[df_types.name==tab_tags[i]].get_values()[0]))
-        #print("test")
         #print(tab_tags[i])
         #print(df_types.index[tab_tags[i] in df_types.name.tolist()].get_values())
     for i in range(0, n):
@@ -405,7 +404,8 @@ def get_way(tab_tags, df_overall_score, n, df_cities):
 """
 def get_graph_matrix(add_dep, add_arr, waypoint, mode, overall_score):
     df_test=compute_depArr(add_dep, add_arr, waypoint, mode)
-    #df_test=pd.read_csv('trajet_essai.csv')
+    print(df_test)
+	#df_test=pd.read_csv('trajet_essai.csv')
     #df_test=df_test.iloc[:,1:]
     df_params=dtf.params_toDf(mode)
     df_params=pd.concat([df_params, df_test], axis=0)

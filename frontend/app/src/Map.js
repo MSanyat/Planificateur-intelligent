@@ -1,7 +1,9 @@
 /*global google*/
-import React from "react"
+
+import React from "react";
+import { withRouter } from 'react-router';
 /*import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"*/
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"*/ 
 import App from './App';
 import {sendFormInformation} from './App';
 /*
@@ -24,7 +26,7 @@ const MyMapComponent = compose(
 )
 */
 
-
+//console.log(this.location.state.detail)
 
 const { compose, withProps, lifecycle } = require("recompose");
 const {
@@ -54,12 +56,25 @@ const MapWithADirectionsRenderer = compose(
         origin: 'Lille',
 		waypoints: [
 		{
-		  location: 'Amiens, FR',
+		  //location: 'Amiens, FR',
+		  location : App.escales,
+		  stopover: false
+		},{
+		  location: 'Nantes, FR',
 		  stopover: false
 		}],
         destination: new google.maps.LatLng(43.29337, 5.3713),
         travelMode: google.maps.TravelMode.DRIVING,
-      }, (result, status) => {
+      
+	 /** origin : this.state.origin,
+	  waypoints : this.state.waypoints,
+	  destination : this.state.arrival,
+	  travelMode : this.state.mode **/
+	  
+	  
+	  
+	  
+	  }, (result, status) => {
         if (status === google.maps.DirectionsStatus.OK) {
           this.setState({
             directions: result,
@@ -81,39 +96,58 @@ const MapWithADirectionsRenderer = compose(
 
 <MapWithADirectionsRenderer />
 
-class Map extends React.PureComponent {
-  state = {
+class Map extends React.Component {
+  constructor(props) {
+        super(props);
+  
+  this.state = {
     isMarkerShown: false,
-  }
-
-  componentDidMount() {
-    this.delayedShowMarker()
-  }
-
-  delayedShowMarker = () => {
+	 origin : 'Bordeaux',
+	  waypoints : [
+		{
+		  //location: 'Amiens, FR',
+		  location : 'Montpellier',
+		  stopover: false
+		}],
+	  destination : 'Marseille',
+	  travelMode : 'driving',
+  };
+  this.componentDidMount = this.componentDidMount.bind(this);
+  this.delayedShowMarker = this.delayedShowMarker.bind(this);
+  this.handleMarkerClick = this.handleMarkerClick.bind(this);
+}
+	delayedShowMarker  () {
     setTimeout(() => {
       this.setState({ isMarkerShown: true })
     }, 3000)
   }
+  
+  componentDidMount () {
+    this.delayedShowMarker()
+  }
 
-  handleMarkerClick = () => {
+  
+
+  handleMarkerClick () {
     this.setState({ isMarkerShown: false })
     this.delayedShowMarker()
   }
 
-  render() {
+  render () {
     return (
 	  /*
       <MyMapComponent
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
-	  */
+	  */ 
 	  <MapWithADirectionsRenderer
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
     )
   }
-}
-export default Map;
+};
+export default Map; 
+
+
