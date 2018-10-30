@@ -221,20 +221,32 @@ class App extends React.Component {
 //browserHistory.push('/map',{data : formData});
 //	fetch('http://192.168.127.1:5000/auth/form?add_dep=Metz&add_arr=Bordeaux&escales=Paris&tags=Art&max_escales=3&optimisation=affinity&mode=driving&h_dep=08:00&h_arr=21:00&j_dep=01122018&j_arr=01122018&t_max=7200&d_max=300000', {method:'GET', mode:'no-cors', headers : new Headers(formData)})
 	fetch(request)
-	.then(function (response) {
+	.then((response) =>{
     console.log(response);
-    return response.json();
-});
-//	.then(response =>{response.json()})
- //   .then((data) => {
+		var json=response.json();
+		console.log(json)
+		return json;
+		this.state.resultat=json.steps;
+		console.log("Resultat = ",this.state.resultat);})
+		
+//    return response.json();});
+	.then(( steps ) => {this.state.resultat = steps;
+		console.log("steps = ",steps);
+		console.log("Départ = ",this.state.resultat.steps[1].ville);
+		for (var i = 0, emp; i <this.state.resultat.steps.length; i++) { 
+			emp = this.state.resultat.steps[i]; 
+			this.state.data.push(emp.ville)
+		}
+		console.log('Villes = ',this.state.data);
+		var data = this.state.data;
+		browserHistory.push({pathname:'/test',state:{ villes: data }}); 
+	});
+  //   .then((data) => {
 //    console.log(data);
 //})
 //	.then(response => response.json())
 //	.then(data => this.state.data=data).then(console.log(data));
-//	.then(data => console.log(data));
-
-	//.then(({ res }) => this.setState({ resultat: res })).then(alert(this.state.resultat));
-  
+//	.then(data => console.log(data)); 
 	/**
 	
 	.then(function(response) {

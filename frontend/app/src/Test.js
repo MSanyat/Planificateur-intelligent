@@ -6,11 +6,15 @@ import Textarea from 'muicss/lib/react/textarea';
 import Button from 'muicss/lib/react/button';
 
 class Test extends React.Component {
+	constructor(props) {
+        super(props);
+	}
   render() {
+	console.log(this.props.location.state.villes);
     return (
       <Form>
         <legend>Title</legend>
-        <Input placeholder="Input 1" />
+        <Input placeholder= "" />
         <Input placeholder="Input 2" />
         <Textarea placeholder="Textarea" />
         <Button variant="raised">Submit</Button>

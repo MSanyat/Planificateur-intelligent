@@ -41,7 +41,8 @@ const {
   
 const MapWithADirectionsRenderer = compose(
   withProps({
-    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8&v=3.exp&libraries=geometry,drawing,places",
+	//stops: this.props.stops,
+	googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `100vh` }} />,
     mapElement: <div style={{ height: `100%` }} />,
@@ -49,21 +50,60 @@ const MapWithADirectionsRenderer = compose(
   withScriptjs,
   withGoogleMap,
   lifecycle({
-    componentDidMount() {
+
+  })
+)(props =>
+  <GoogleMap
+    defaultZoom={7}
+    defaultCenter={new google.maps.LatLng(47.0824, 2.3985)}
+  >
+    {props.directions && <DirectionsRenderer directions={props.directions} />}
+  </GoogleMap>
+);
+
+<MapWithADirectionsRenderer />
+
+class Map extends React.Component {
+  constructor(props) {
+        super(props);
+  
+  this.state = {
+   isMarkerShown: false,
+   stops: [
+		{
+		  location: 'Amiens, FR',
+		  //location : App.escales,
+		  stopover: false
+		},{
+		  location: 'Nantes, FR',
+		  stopover: false
+		}]};
+  this.componentDidMount = this.componentDidMount.bind(this);
+  this.delayedShowMarker = this.delayedShowMarker.bind(this);
+  this.handleMarkerClick = this.handleMarkerClick.bind(this);
+}
+	delayedShowMarker  () {
+    setTimeout(() => {
+      this.setState({ isMarkerShown: true })
+    }, 3000)
+  }
+	    componentDidMount() {
+		this.delayedShowMarker()
 		const DirectionsService = new google.maps.DirectionsService();
 		
       DirectionsService.route({
         origin: 'Lille',
 		waypoints: [
 		{
-		  //location: 'Amiens, FR',
-		  location : App.escales,
+		  location: 'Amiens, FR',
+		  //location : App.escales,
 		  stopover: false
 		},{
 		  location: 'Nantes, FR',
 		  stopover: false
 		}],
-        destination: new google.maps.LatLng(43.29337, 5.3713),
+        //destination: new google.maps.LatLng(43.29337, 5.3713),
+		destination: 'Cannes',
         travelMode: google.maps.TravelMode.DRIVING,
       
 	 /** origin : this.state.origin,
@@ -84,48 +124,6 @@ const MapWithADirectionsRenderer = compose(
         }
       });
     }
-  })
-)(props =>
-  <GoogleMap
-    defaultZoom={7}
-    defaultCenter={new google.maps.LatLng(47.0824, 2.3985)}
-  >
-    {props.directions && <DirectionsRenderer directions={props.directions} />}
-  </GoogleMap>
-);
-
-<MapWithADirectionsRenderer />
-
-class Map extends React.Component {
-  constructor(props) {
-        super(props);
-  
-  this.state = {
-    isMarkerShown: false,
-	 origin : 'Bordeaux',
-	  waypoints : [
-		{
-		  //location: 'Amiens, FR',
-		  location : 'Montpellier',
-		  stopover: false
-		}],
-	  destination : 'Marseille',
-	  travelMode : 'driving',
-  };
-  this.componentDidMount = this.componentDidMount.bind(this);
-  this.delayedShowMarker = this.delayedShowMarker.bind(this);
-  this.handleMarkerClick = this.handleMarkerClick.bind(this);
-}
-	delayedShowMarker  () {
-    setTimeout(() => {
-      this.setState({ isMarkerShown: true })
-    }, 3000)
-  }
-  
-  componentDidMount () {
-    this.delayedShowMarker()
-  }
-
   
 
   handleMarkerClick () {
