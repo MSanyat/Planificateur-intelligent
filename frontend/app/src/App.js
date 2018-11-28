@@ -239,7 +239,7 @@ class App extends React.Component {
 		}
 		console.log('Villes = ',this.state.data);
 		var data = this.state.data;
-		browserHistory.push({pathname:'/test',state:{ villes: data }}); 
+		browserHistory.push({pathname:'/map',state:{ villes: data }}); 
 	});
   //   .then((data) => {
 //    console.log(data);

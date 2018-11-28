@@ -1,9 +1,7 @@
 /*global google*/
-
-import React from "react";
-import { withRouter } from 'react-router';
+import React from "react"
 /*import { compose, withProps } from "recompose"
-import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"*/ 
+import { withScriptjs, withGoogleMap, GoogleMap, Marker } from "react-google-maps"*/
 import App from './App';
 import {sendFormInformation} from './App';
 /*
@@ -26,7 +24,7 @@ const MyMapComponent = compose(
 )
 */
 
-//console.log(this.location.state.detail)
+
 
 const { compose, withProps, lifecycle } = require("recompose");
 const {
@@ -36,13 +34,12 @@ const {
   DirectionsRenderer,
 } = require("react-google-maps");
 
-
+ values = {this.props.location.state.villes};
 
   
 const MapWithADirectionsRenderer = compose(
   withProps({
-	//stops: this.props.stops,
-	googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8&v=3.exp&libraries=geometry,drawing,places",
+    googleMapURL: "https://maps.googleapis.com/maps/api/js?key=AIzaSyB8pxsl2jFQSwshMT2I5Weue8CKLgxalY8&v=3.exp&libraries=geometry,drawing,places",
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `100vh` }} />,
     mapElement: <div style={{ height: `100%` }} />,
@@ -50,7 +47,28 @@ const MapWithADirectionsRenderer = compose(
   withScriptjs,
   withGoogleMap,
   lifecycle({
-
+    componentDidMount() {
+		const DirectionsService = new google.maps.DirectionsService();
+		
+      DirectionsService.route({
+        origin: values[0],
+		waypoints: [
+		{
+		  location: 'Amiens, FR',
+		  stopover: false
+		}],
+        destination: new google.maps.LatLng(43.29337, 5.3713),
+        travelMode: google.maps.TravelMode.DRIVING,
+      }, (result, status) => {
+        if (status === google.maps.DirectionsStatus.OK) {
+          this.setState({
+            directions: result,
+          });
+        } else {
+          console.error(`error fetching directions ${result}`);
+        }
+      });
+    }
   })
 )(props =>
   <GoogleMap
@@ -63,89 +81,40 @@ const MapWithADirectionsRenderer = compose(
 
 <MapWithADirectionsRenderer />
 
-class Map extends React.Component {
-  constructor(props) {
-        super(props);
-  
-  this.state = {
-   isMarkerShown: false,
-   stops: [
-		{
-		  location: 'Amiens, FR',
-		  //location : App.escales,
-		  stopover: false
-		},{
-		  location: 'Nantes, FR',
-		  stopover: false
-		}]};
-  this.componentDidMount = this.componentDidMount.bind(this);
-  this.delayedShowMarker = this.delayedShowMarker.bind(this);
-  this.handleMarkerClick = this.handleMarkerClick.bind(this);
-}
-	delayedShowMarker  () {
+class Map extends React.PureComponent {
+  state = {
+    isMarkerShown: false,
+  }
+
+  componentDidMount() {
+    this.delayedShowMarker()
+  }
+
+  delayedShowMarker = () => {
     setTimeout(() => {
       this.setState({ isMarkerShown: true })
     }, 3000)
   }
-	    componentDidMount() {
-		this.delayedShowMarker()
-		const DirectionsService = new google.maps.DirectionsService();
-		
-      DirectionsService.route({
-        origin: 'Lille',
-		waypoints: [
-		{
-		  location: 'Amiens, FR',
-		  //location : App.escales,
-		  stopover: false
-		},{
-		  location: 'Nantes, FR',
-		  stopover: false
-		}],
-        //destination: new google.maps.LatLng(43.29337, 5.3713),
-		destination: 'Cannes',
-        travelMode: google.maps.TravelMode.DRIVING,
-      
-	 /** origin : this.state.origin,
-	  waypoints : this.state.waypoints,
-	  destination : this.state.arrival,
-	  travelMode : this.state.mode **/
-	  
-	  
-	  
-	  
-	  }, (result, status) => {
-        if (status === google.maps.DirectionsStatus.OK) {
-          this.setState({
-            directions: result,
-          });
-        } else {
-          console.error(`error fetching directions ${result} blabla`);
-        }
-      });
-    }
-  
 
-  handleMarkerClick () {
+  handleMarkerClick = () => {
     this.setState({ isMarkerShown: false })
     this.delayedShowMarker()
   }
 
-  render () {
+  render() {
     return (
 	  /*
       <MyMapComponent
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
-	  */ 
+	  */
 	  <MapWithADirectionsRenderer
+		
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />
     )
   }
-};
-export default Map; 
-
-
+}
+export default Map;
