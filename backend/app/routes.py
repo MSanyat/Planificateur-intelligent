@@ -28,6 +28,8 @@ from flask import Flask, request, jsonify
 import jwt
 import datetime
 import configparser
+import computing.algorithms as al
+
 ###############################################################################
 
 
@@ -266,6 +268,20 @@ def get_profile():
         'ville':current_user.ville,
         'cp':current_user.cp
     })
+
+###############################################################################
+@app.route('/auth/FormCity', methods=['GET'])
+def FormCity():
+    dest = request.args.get('dest')
+    time = request.args.get('time')
+    budget = request.args.get('budget')
+    value = request.args.get('value') #Type de voyage
+    value2 = request.args.get('value2')
+    koa = request.args.get('koa') #Type d'activités
+    test=al.get_best_places([koa],value,value2)
+    info =al.get_places_info(test)
+    print(info)
+    return jsonify(info)
 ###############################################################################
 @app.route('/auth/logout', methods=['GET'])
 @login_required

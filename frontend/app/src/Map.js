@@ -34,7 +34,7 @@ const {
   DirectionsRenderer,
 } = require("react-google-maps");
 
- values = {this.props.location.state.villes};
+
 
   
 const MapWithADirectionsRenderer = compose(
@@ -51,7 +51,7 @@ const MapWithADirectionsRenderer = compose(
 		const DirectionsService = new google.maps.DirectionsService();
 		
       DirectionsService.route({
-        origin: values[0],
+        origin: 'Lille',
 		waypoints: [
 		{
 		  location: 'Amiens, FR',
@@ -110,7 +110,6 @@ class Map extends React.PureComponent {
       />
 	  */
 	  <MapWithADirectionsRenderer
-		
         isMarkerShown={this.state.isMarkerShown}
         onMarkerClick={this.handleMarkerClick}
       />

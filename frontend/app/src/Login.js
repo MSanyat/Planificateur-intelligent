@@ -50,7 +50,7 @@ class Login extends React.Component {
     fetch('http://10.2.68.50:5000/auth/login', {
         method: 'POST',
         body: formData
-    }).then(browserHistory.push('/form'));
+    }).then(browserHistory.push('/Choice'));
   }
 
 
