@@ -9,7 +9,7 @@ import App from './App';
 import Background from "./static/img/paris.jpg";
 import Background2 from "./static/img/Versaille.jpg";
 import {FormCity} from "./FormCity";
-import ReactJson from 'react-json-view';
+//import ReactJson from 'react-json-view';
 import JSONPretty from 'react-json-pretty';
 //import ReactFileReader from 'react-file-reader';
 //import { CsvToHtmlTable } from 'react-csv-to-table';
@@ -71,23 +71,45 @@ var sectionS = {
 	backgroundImage: `url(${Background2})`
 }
 
+
+
+
 class Activities extends React.Component {
 
 	constructor(props) {
 		super(props);
+
+		this.values = this.props.location.state.nom.bind(this);
 		this.state = {
 			//dest: this.props.location.state.some
+			//values: this.props.location.state.nom
 		};
+
+		
+
 	}
 
+	temp = () => {
+
+		var data = []
+		for(var i = 0; i <this.state.values.length; i++){
+			data.push(this.state.values[i])
+
+		}
+		return data
+	}
+
+	
   render () {
+  	
     return (
 	<div className="cover-full">
 				<section style={ sectionStyle } id="myPhoto">
 				</section>
         <div className="login_container">
-                <h2> Veuillez choisir les activités vous correspondant : </h2>
-				<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
+                <h2> Veuillez choisir les activités vous correspondant: {this.temp()} </h2>
+                
+				//<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
         </div>
 	</div>
 	)

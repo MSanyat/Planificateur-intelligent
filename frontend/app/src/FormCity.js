@@ -56,7 +56,9 @@ class CheckboxOption extends Component {
 			time:'',
 			value: 'select',//kind of travel
 			value2: 'select',//number of activities
-			koa:'' //kind of activities
+			koa:'', //kind of activities
+			resultat:[],
+			data:[],
 		};
 	}
 
@@ -93,7 +95,7 @@ class CheckboxOption extends Component {
 	formData.append('koa',koa);
 	formData.append('value', value);
 	formData.append('value2',value2);
-	var url = 'http://10.2.68.50:5000/auth/form2?';
+	var url = 'http://10.4.95.88:5000/auth/FormCity?';
 	var depart = 'dest='.concat(this.state.dest,'&');
 	var result = depart.concat('budget=',this.state.budget,'&',
 							'time=', this.state.time,'&',
@@ -102,14 +104,36 @@ class CheckboxOption extends Component {
 							'value2=', this.state.value2,'&');
 	alert(result);
 
-	var request = new Request(url.concat(result), {method:'GET', mode:'no-cors', headers : new Headers(formData)});
+	var request = new Request(url.concat(result), {method:'GET', headers : new Headers({
+     'Authorization': 'Basic '+btoa('username:password'), 
+     'Content-Type': 'application/x-www-form-urlencoded'
+   },formData)});
+	
+//	fetch('http://192.168.127.1:5000/auth/form?add_dep=Metz&add_arr=Bordeaux&escales=Paris&tags=Art&max_escales=3&optimisation=affinity&mode=driving&h_dep=08:00&h_arr=21:00&j_dep=01122018&j_arr=01122018&t_max=7200&d_max=300000', {method:'GET', mode:'no-cors', headers : new Headers(formData)})
+	fetch(request)
+	.then((response) =>{
+	console.log("test");
+     console.log(response);
+	var json=response.json();
+		console.log(json);
+		return json;
+		this.state.resultat=json.steps;
+		console.log("Resultat = ",this.state.resultat);})
+		
+//    return response.json();});
+	.then(( steps ) => {this.state.resultat = steps;
+		
+		for (var i = 0, emp; i <this.state.resultat.steps.length; i++) { 
+			emp = this.state.resultat.steps[i]; 
+			this.state.data.push(emp.nom)
+		}
+		console.log('Nom = ',this.state.data);
+		var data = this.state.data;
+		browserHistory.push({pathname:'/Activities',state:{ nom: data }}); 
+	});	
 
-    fetch('http://10.2.68.50:5000/auth/form2?', {
-        method: 'GET',
-        headers : new Headers(formData)
-    })
-		.then(response => response.json())
-		.then(browserHistory.push('/Activities'));
+
+	//.then(browserHistory.push('/Activities'));
 		/*({
 		  pathname: '/Activities',
 		  search: '?the=search',
@@ -155,11 +179,11 @@ class CheckboxOption extends Component {
 									<label htmlFor="select1" >Type de voyage</label>
 									<select value={this.state.value} onChange={this.onChange.bind(this)} className="form-control">
 									  <option value="Select">Choisir</option>
-									  <option value="First">Seul</option>
-									  <option value="Second">Couple</option>
-									  <option value="Third">Entre amis</option>
-										<option value="Fourth">Entre collègues</option>
-										<option value="Fifth">En famille</option>
+									  <option value="Solo">Seul</option>
+									  <option value="Couple">Couple</option>
+									  <option value="Entre amis">Entre amis</option>
+										<option value="Entre collÃ¨gues">Entre collègues</option>
+										<option value="Famille">En famille</option>
 									</select>
 								</div>
 							</div>

@@ -30,6 +30,7 @@ import datetime
 import configparser
 import computing.algorithms as al
 
+
 ###############################################################################
 
 
@@ -270,18 +271,22 @@ def get_profile():
     })
 
 ###############################################################################
-@app.route('/auth/FormCity', methods=['GET'])
+@app.route('/auth/FormCity', methods=['GET','OPTIONS'])
+@cross_origin(headers=['Content-Type']) # Send Access-Control-Allow-Headers
+
 def FormCity():
     dest = request.args.get('dest')
-    time = request.args.get('time')
+    time = int(request.args.get('time'))
     budget = request.args.get('budget')
+
     value = request.args.get('value') #Type de voyage
-    value2 = request.args.get('value2')
+    value2 = int(request.args.get('value2'))
     koa = request.args.get('koa') #Type d'activités
     test=al.get_best_places([koa],value,value2)
     info =al.get_places_info(test)
+
     print(info)
-    return jsonify(info)
+    return jsonify({'steps':info})
 ###############################################################################
 @app.route('/auth/logout', methods=['GET'])
 @login_required

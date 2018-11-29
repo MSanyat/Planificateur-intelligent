@@ -4,7 +4,7 @@ import sys
 from nltk.corpus import wordnet as wn
 
 
-Data=pd.read_csv("Data.csv", sep=',',na_values='NULL',engine='python')
+Data=pd.read_csv("/Users/Ammallan/Desktop/PFE/Planificateur-intelligent/backend/app/computing/Data.csv", sep=',',na_values='NULL',engine='python')
 def get_similarity(str1,str2):
     try:
         word1=wn.synsets(str1)[0]
@@ -64,9 +64,11 @@ def get_best_places(tags,activity_type,nbActivities):
 def get_places_info(selected_id):
     result=[]
     for i in selected_id:
-        result.append({'id': i, 'nom': Data.loc[Data['id'] == i, 'name'].iloc[0], 'Categorie':Data.loc[Data['id'] == i, 'subCategory'].iloc[0] })
+        result.append({'id': int(i), 'nom': Data.loc[Data['id'] == i, 'name'].iloc[0], 'Categorie':Data.loc[Data['id'] == i, 'subCategory'].iloc[0] })
     return result
 
-test=get_best_places(['Culture'],'Famille',5)
-print(test)
-get_places_info(test)
+#test=get_best_places(['Culture'],'Famille',5)
+#print(test)
+#test1=get_places_info(test)
+#print(test1)
+
