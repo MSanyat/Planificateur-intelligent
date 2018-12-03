@@ -83,10 +83,18 @@ class Activities extends React.Component {
 		//this.values = this.props.location.state.nom.bind(this);
 		this.state = {
 			//dest: this.props.location.state.some
-			//values: this.props.location.state.nom
+				values: this.props.location.state.nom,
 				button: 'Valider'
 		};
 	}
+	temp = () => {
+				var data = []
+				for(var i = 0; i <this.state.values.length; i++){
+					data.push(this.state.values[i])
+				}
+				return data
+	}
+
 	submit = () => {
 		let formData = new FormData();
 		fetch('http://10.2.68.50:5000/auth/form3', {
@@ -94,18 +102,7 @@ class Activities extends React.Component {
 			body: formData
 		}).then(browserHistory.push('/timetable'));
 	}
-/*
-	temp = () => {
 
-		var data = []
-		for(var i = 0; i <this.state.values.length; i++){
-			data.push(this.state.values[i])
-
-		}
-		return data
-	}
-*/
-	
   render () {
 	
     return (
@@ -114,7 +111,7 @@ class Activities extends React.Component {
 				<section style={ sectionStyle } id="myPhoto">
 				</section>
         <div className="login_container">
-                <h2> Veuillez choisir les activités vous correspondant: </h2>
+                <h2> Veuillez choisir les activités vous correspondant: {this.temp()} </h2>
 					<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
 					<button class="btn btn-success"><TiTick /></button>
 					<button class="btn btn-danger"><TiTimes /></button>

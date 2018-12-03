@@ -11,7 +11,6 @@ import Background2 from './static/img/Paris2.jpg';
 import axios from 'axios';
 import App from './App';
 
-
 var sectionStyle = {
 	width: "100%",
 	height: "100%",
