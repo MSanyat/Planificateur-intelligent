@@ -9,7 +9,6 @@ import App from './App';
 import Background from "./static/img/Fond2.png";
 import Background2 from "./static/img/Versaille.jpg";
 import {FormCity} from "./FormCity";
-import Timetable from 'react-timetable-events'
 import './Timetable.css';
 import { ReactAgenda , ReactAgendaCtrl , guid ,  Modal } from 'react-agenda';
 

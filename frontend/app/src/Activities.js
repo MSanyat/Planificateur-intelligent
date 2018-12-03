@@ -11,6 +11,7 @@ import Background2 from "./static/img/Versaille.jpg";
 import {FormCity} from "./FormCity";
 //import ReactJson from 'react-json-view';
 import JSONPretty from 'react-json-pretty';
+import { TiTick, TiTimes } from 'react-icons/ti';
 //import ReactFileReader from 'react-file-reader';
 //import { CsvToHtmlTable } from 'react-csv-to-table';
 
@@ -106,18 +107,23 @@ class Activities extends React.Component {
 */
 	
   render () {
-  	
+	
     return (
+		
 	<div className="cover-full">
 				<section style={ sectionStyle } id="myPhoto">
 				</section>
         <div className="login_container">
                 <h2> Veuillez choisir les activités vous correspondant: </h2>
-                
-				<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
-				<form id="Form2" role="form" onSubmit={() => this.submit()}>
-                     <button class="btn btn-primary" type="submit">{this.state.button}
-                     </button>
+					<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
+					<button class="btn btn-success"><TiTick /></button>
+					<button class="btn btn-danger"><TiTimes /></button>
+					<JSONPretty id="json-pretty" json={json[1].name}></JSONPretty>
+					<button class="btn btn-success"><TiTick /></button>
+					<button class="btn btn-danger"><TiTimes /></button>
+				<form id="Activities" role="form" onSubmit={() => this.submit()}>
+                     <center><button class="btn btn-default" type="submit">{this.state.button}
+                     </button></center>
 				</form>
         </div>
 	</div>

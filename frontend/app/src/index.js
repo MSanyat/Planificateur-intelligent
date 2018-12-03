@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 // Import routing components
 import {Router, Route, browserHistory} from 'react-router';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // Import custom components
 import './index.css';
 import App from './App.js';
