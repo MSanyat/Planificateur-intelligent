@@ -79,16 +79,21 @@ class Activities extends React.Component {
 	constructor(props) {
 		super(props);
 
-		this.values = this.props.location.state.nom.bind(this);
+		//this.values = this.props.location.state.nom.bind(this);
 		this.state = {
 			//dest: this.props.location.state.some
 			//values: this.props.location.state.nom
+				button: 'Valider'
 		};
-
-		
-
 	}
-
+	submit = () => {
+		let formData = new FormData();
+		fetch('http://10.2.68.50:5000/auth/form3', {
+			method: 'POST',
+			body: formData
+		}).then(browserHistory.push('/timetable'));
+	}
+/*
 	temp = () => {
 
 		var data = []
@@ -98,7 +103,7 @@ class Activities extends React.Component {
 		}
 		return data
 	}
-
+*/
 	
   render () {
   	
@@ -107,9 +112,13 @@ class Activities extends React.Component {
 				<section style={ sectionStyle } id="myPhoto">
 				</section>
         <div className="login_container">
-                <h2> Veuillez choisir les activités vous correspondant: {this.temp()} </h2>
+                <h2> Veuillez choisir les activités vous correspondant: </h2>
                 
-				//<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
+				<JSONPretty id="json-pretty" json={json[0].name}></JSONPretty>
+				<form id="Form2" role="form" onSubmit={() => this.submit()}>
+                     <button class="btn btn-primary" type="submit">{this.state.button}
+                     </button>
+				</form>
         </div>
 	</div>
 	)

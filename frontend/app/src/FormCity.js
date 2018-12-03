@@ -46,17 +46,19 @@ class CheckboxOption extends Component {
 		this.sendFormInformation = this.sendFormInformation.bind(this);
 		this.changeDest = this.changeDest.bind(this);
 		this.changeBudget = this.changeBudget.bind(this);
-		this.changeTime = this.changeTime.bind(this);
 		this.onChange = this.onChange.bind(this);
 		this.onChange2 = this.onChange2.bind(this);
 		this.changeKoa = this.changeKoa.bind(this);
+		this.changeJ_dep = this.changeJ_dep.bind(this);
+		this.changeJ_arr = this.changeJ_arr.bind(this);
 		this.state = {
 			dest: '',
 			budget: '',
-			time:'',
 			value: 'select',//kind of travel
 			value2: 'select',//number of activities
 			koa:'', //kind of activities
+			j_dep:'',
+			j_arr:'',
 			resultat:[],
 			data:[],
 		};
@@ -78,29 +80,35 @@ class CheckboxOption extends Component {
       console.log("CHANGE");
       this.setState({ budget: e.target.value });
     }
-    changeTime(e) {
-      console.log("CHANGE");
-      this.setState({ time: e.target.value });
-    }
     changeKoa(e) {
       console.log("CHANGE");
       this.setState({ koa: e.target.value });
+		}
+		changeJ_dep(e) {
+      console.log("CHANGE");
+      this.setState({ j_dep: e.target.value });
+		}
+		changeJ_arr(e) {
+      console.log("CHANGE");
+      this.setState({ j_arr: e.target.value });
     }
 
-	sendFormInformation = (dest, budget, time, koa, value, value2) => {
+	sendFormInformation = (dest, budget, time, koa, value, value2, j_dep, j_arr) => {
 	let formData = new FormData();
 	formData.append('dest', dest);
 	formData.append('budget',budget);
-	formData.append('time', time);
 	formData.append('koa',koa);
 	formData.append('value', value);
 	formData.append('value2',value2);
+	formData.append('j_dep',j_dep);
+	formData.append('value2',j_arr);
 	var url = 'http://10.4.95.88:5000/auth/FormCity?';
 	var depart = 'dest='.concat(this.state.dest,'&');
 	var result = depart.concat('budget=',this.state.budget,'&',
-							'time=', this.state.time,'&',
 							'koa=', this.state.koa,'&',
 							'value=', this.state.value,'&',
+							'j_dep=', this.state.j_dep,'&',
+							'j_arr=', this.state.j_arr,'&',
 							'value2=', this.state.value2,'&');
 	alert(result);
 
@@ -143,7 +151,7 @@ class CheckboxOption extends Component {
 
   render () {
 
-    const {dest, budget, time, koa, value, value2} = this.state;
+    const {dest, budget, time, koa, value, value2, j_dep, j_arr} = this.state;
 
     return (
     		<div className="cover-full">
@@ -167,12 +175,21 @@ class CheckboxOption extends Component {
 							</div>
 						</div>
 						<div className="form-group">
-							<div className="row">
-								<div className="col-sm-8">
-									<input type="text" value={this.state.time} onChange={this.changeTime} className="form-control" name="time" placeholder="Durée (en jours)" required />
-								</div>
+						<div className="row">
+							<label className="col-sm-2" htmlFor="j_dep">Départ</label>
+							<div className="col-sm-8">
+								<input type="date" value={this.state.j_dep} name="j_dep" required={true} onChange={this.changeJ_dep} />
 							</div>
 						</div>
+					</div>
+					<div className="form-group">
+						<div className="row">
+							<label className="col-sm-2" htmlFor="j_dep">Arrivée</label>
+							<div className="col-sm-8">
+								<input type="date" value={this.state.j_arr} name="j_arr" required={true} onChange={this.changeJ_arr} />
+							</div>
+						</div>
+					</div>
 						<div className="form-group">
 							<div className="row">
 								<div className="col-sm-8">

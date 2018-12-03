@@ -276,9 +276,9 @@ def get_profile():
 
 def FormCity():
     dest = request.args.get('dest')
-    time = int(request.args.get('time'))
     budget = request.args.get('budget')
-
+    j_dep = request.args.get('j_dep')
+    j_arr = request.args.get('j_arr')
     value = request.args.get('value') #Type de voyage
     value2 = int(request.args.get('value2'))
     koa = request.args.get('koa') #Type d'activités

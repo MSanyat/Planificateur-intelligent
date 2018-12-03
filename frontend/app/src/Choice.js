@@ -18,14 +18,14 @@ class Choice extends React.Component {
 
 	switch1 = () => {
 	let formData = new FormData();
-    fetch('http://10.2.68.50:5000/auth/form3', {
+    fetch('http://10.2.68.50:5000/auth/Choice', {
         method: 'POST',
         body: formData
     }).then(browserHistory.push('/FormCity'));
   	}
   switch2 = () => {
 	let formData = new FormData();
-    fetch('http://10.2.68.50:5000/auth/form3', {
+    fetch('http://10.2.68.50:5000/auth/Choice', {
         method: 'POST',
         body: formData
     }).then(browserHistory.push('/form'));

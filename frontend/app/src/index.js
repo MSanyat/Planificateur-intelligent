@@ -17,6 +17,7 @@ import Test from './Test.js'
 import FormCity from './FormCity.js';
 import Choice from './Choice.js';
 import Activities from './Activities.js';
+import Timetable from './Timetable.js';
 
 ReactDom.render(
     <Router history={browserHistory}>
@@ -30,6 +31,7 @@ ReactDom.render(
 		<Route path="/logout" component={Logout}/>
 		<Route path="/test" component={Test}/>
 		<Route path="/welcome" component={Welcome}/>
+        <Route path="/timetable" component={Timetable}/>
     </Router>,
     document.querySelector('#root')
 );
