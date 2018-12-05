@@ -28,6 +28,7 @@ from flask import Flask, request, jsonify
 import jwt
 import datetime
 import configparser
+from datetime import date
 import computing.algorithms as al
 
 
@@ -280,9 +281,12 @@ def FormCity():
     j_dep = request.args.get('j_dep')
     j_arr = request.args.get('j_arr')
     value = request.args.get('value') #Type de voyage
-    value2 = int(request.args.get('value2'))
+    value2 = int(request.args.get('value2')) #Nombre d'activités
+    nb_day = int(request.args.get('nb_day'))
     koa = request.args.get('koa') #Type d'activités
-    test=al.get_best_places([koa],value,value2)
+    diff = value2 * nb_day
+    #print(diff)
+    test=al.get_best_places([koa], value, diff)#, j_arr, j_dep)
     info =al.get_places_info(test)
 
     print(info)
@@ -301,3 +305,25 @@ def logout():
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
 ###############################################################################
+
+###############################################################################
+@app.route('/auth/Activities', methods=['POST','OPTIONS'])
+@cross_origin(headers=['Content-Type']) # Send Access-Control-Allow-Headers
+
+def FormCity():
+    data_ok = request.get_json().get('data_ok')
+    #ids = request.get_json().get('dest')
+    #nbActivities = request.get_json().get('budget')
+    #j_dep = request.get_json().get('j_dep')
+    #j_arr = request.get_json().args.get('j_arr')
+    #position = get_position(ids)
+    #ordered_activities = planning(position,nbActivities,j_dep,j_arr)
+    #diff_days = (j_arr - j_dep).days
+    #schedule = timing(ordered_activities,nbActivities,diff_days)
+    print(data_ok)
+    #return jsonify({'schedule':schedule})
+
+
+
+
+

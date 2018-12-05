@@ -46,6 +46,7 @@ class CheckboxOption extends Component {
 		this.changeDest = this.changeDest.bind(this);
 		this.changeBudget = this.changeBudget.bind(this);
 		this.onChange = this.onChange.bind(this);
+		this.changeNbday = this.changeNbday.bind(this);
 		this.onChange2 = this.onChange2.bind(this);
 		this.changeKoa = this.changeKoa.bind(this);
 		this.changeJ_dep = this.changeJ_dep.bind(this);
@@ -53,6 +54,7 @@ class CheckboxOption extends Component {
 		this.state = {
 			dest: '',
 			budget: '',
+			nb_day: '',
 			value: 'select',//kind of travel
 			value2: 'select',//number of activities
 			koa:'', //kind of activities
@@ -60,39 +62,46 @@ class CheckboxOption extends Component {
 			j_arr:'',
 			resultat:[],
 			data:[],
+			ids:[]
 		};
 	}
 
 	onChange(e) {
+		console.log("CHANGE5");
 		this.setState({value: e.target.value})
 	}
 
 	onChange2(e) {
+		console.log("CHANGE6");
 		this.setState({value2: e.target.value})
 	}
 
 	changeDest(e) {
-      console.log("CHANGE");
+      console.log("CHANGE1");
       this.setState({ dest: e.target.value });
     }
     changeBudget(e) {
-      console.log("CHANGE");
+      console.log("CHANGE2");
       this.setState({ budget: e.target.value });
+		}
+		changeNbday(e) {
+      console.log("CHANGEX");
+      this.setState({ nb_day: e.target.value });
     }
     changeKoa(e) {
-      console.log("CHANGE");
+      console.log("CHANGE7");
       this.setState({ koa: e.target.value });
 		}
 		changeJ_dep(e) {
-      console.log("CHANGE");
+      console.log("CHANGE3");
       this.setState({ j_dep: e.target.value });
 		}
 		changeJ_arr(e) {
-      console.log("CHANGE");
+      console.log("CHANGE4");
       this.setState({ j_arr: e.target.value });
     }
 
-	sendFormInformation = (dest, budget, time, koa, value, value2, j_dep, j_arr) => {
+	sendFormInformation = (dest, budget, time, koa, value, value2, j_dep, j_arr,nb_day) => {
 	let formData = new FormData();
 	formData.append('dest', dest);
 	formData.append('budget',budget);
@@ -100,12 +109,14 @@ class CheckboxOption extends Component {
 	formData.append('value', value);
 	formData.append('value2',value2);
 	formData.append('j_dep',j_dep);
+	formData.append('nb_day',nb_day);
 	formData.append('value2',j_arr);
-	var url = 'http://10.4.95.88:5000/auth/FormCity?';
+	var url = 'http://10.4.94.196:5000/auth/FormCity?';
 	var depart = 'dest='.concat(this.state.dest,'&');
 	var result = depart.concat('budget=',this.state.budget,'&',
 							'koa=', this.state.koa,'&',
 							'value=', this.state.value,'&',
+							'nb_day=', this.state.nb_day,'&',
 							'j_dep=', this.state.j_dep,'&',
 							'j_arr=', this.state.j_arr,'&',
 							'value2=', this.state.value2,'&');
@@ -126,17 +137,19 @@ class CheckboxOption extends Component {
 		return json;
 		this.state.resultat=json.steps;
 		console.log("Resultat = ",this.state.resultat);})
-		
+	
 //    return response.json();});
 	.then(( steps ) => {this.state.resultat = steps;
 		
 		for (var i = 0, emp; i <this.state.resultat.steps.length; i++) { 
 			emp = this.state.resultat.steps[i]; 
-			this.state.data.push(emp.nom)
+			this.state.data.push(emp.nom);
+			this.state.ids.push(emp.id);
 		}
 		console.log('Nom = ',this.state.data);
 		var data = this.state.data;
-		browserHistory.push({pathname:'/Activities',state:{ nom: data }}); 
+		var ids = this.state.ids
+		browserHistory.push({pathname:'/Activities',state:{ nom: data,ids : ids }}); 
 	});	
 
 
@@ -150,7 +163,7 @@ class CheckboxOption extends Component {
 
   render () {
 
-    const {dest, budget, time, koa, value, value2, j_dep, j_arr} = this.state;
+    const {dest, budget, time, koa, value, value2, j_dep, j_arr, nb_day} = this.state;
 
     return (
     		<div className="cover-full">
@@ -189,6 +202,13 @@ class CheckboxOption extends Component {
 							</div>
 						</div>
 					</div>
+					<div className="form-group">
+							<div className="row">
+								<div className="col-sm-8">
+									<input type="int" value={this.state.nb_day} onChange={this.changeNbday} className="form-control" name="nb_day" placeholder="Nombre de jours" required />
+								</div>
+							</div>
+						</div>
 						<div className="form-group">
 							<div className="row">
 								<div className="col-sm-8">
