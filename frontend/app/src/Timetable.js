@@ -9,6 +9,7 @@ import App from './App';
 import Background from "./static/img/Fond2.png";
 import Background2 from "./static/img/Versaille.jpg";
 import {FormCity} from "./FormCity";
+import {Activities} from "./Activities";
 import './Timetable.css';
 import { ReactAgenda , ReactAgendaCtrl , guid ,  Modal } from 'react-agenda';
 
@@ -76,10 +77,12 @@ var now = new Date();
   ];
 
 
-class Activities extends React.Component {
+class Timetable extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			schedule : this.props.location.state.schedule,
+			sch :[],
 			items:items,
 			selected:[],
 			cellHeight:30,
@@ -89,6 +92,21 @@ class Activities extends React.Component {
 			numberOfDays:7,
 			startDate: new Date()
 		};
+		for (var i = 0, emp; i <this.state.schedule.length; i++) { 
+		var	step = this.state.schedule[i];
+		var date_deb = new Date(step.startDateTime);
+		console.log(date_deb.toLocaleString());
+		var date_fin = new Date(step.endDateTime);
+		var	emp = { _id: guid(),
+			name: step.name,
+			startDateTime: date_deb,
+			endDateTime: date_fin,
+			classes : 'color-2'
+		}
+			this.state.sch.push(emp);
+			
+		}
+		console.log(emp);
 		this.handleCellSelection = this.handleCellSelection.bind(this)
 		this.handleItemEdit = this.handleItemEdit.bind(this)
 		this.handleRangeSelection = this.handleRangeSelection.bind(this)
@@ -98,6 +116,7 @@ class Activities extends React.Component {
 	  console.log('handleCellSelection',item)
 	}
 	handleItemEdit(item){
+	  console.log('schedule = ',this.state.schedule);
 	  console.log('handleItemEdit', item)
 	}
 	handleRangeSelection(item){
@@ -118,7 +137,7 @@ class Activities extends React.Component {
           startDate={this.state.startDate}
           cellHeight={this.state.cellHeight}
           locale={this.state.locale}
-          items={this.state.items}
+          items={this.state.sch}
           numberOfDays={this.state.numberOfDays}
           rowsPerHour={this.state.rowsPerHour}
           itemColors={colors}
@@ -132,4 +151,4 @@ class Activities extends React.Component {
 	)
   }
 }
-export default withRouter(Activities);
+export default withRouter(Timetable);

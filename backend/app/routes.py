@@ -29,6 +29,8 @@ import jwt
 import datetime
 import configparser
 from datetime import date
+from datetime import datetime
+from datetime import timedelta
 import computing.algorithms as al
 
 
@@ -288,9 +290,9 @@ def FormCity():
     #print(diff)
     test=al.get_best_places([koa], value, diff)#, j_arr, j_dep)
     info =al.get_places_info(test)
-
     print(info)
     return jsonify({'steps':info})
+
 ###############################################################################
 @app.route('/auth/logout', methods=['GET'])
 @login_required
@@ -299,30 +301,45 @@ def logout():
     return jsonify({
         'status':'Logout'
     })
+
 ###############################################################################
+@app.route('/auth/Activities', methods=['GET','OPTIONS'])
+@cross_origin(headers=['Content-Type']) # Send Access-Control-Allow-Headers
+def Activities():
+    #data_ok = request.get_json().get('data_ok')
+    data_ok = request.args.get('data_ok')
+    data_ko = request.args.get('data_ko')
+    data_ok = data_ok.split(',')
+    data_ok = [int(i) for i in data_ok]
+    print(type(data_ok))
+    #ids = request.get_json().get('dest')
+    #nbActivities = request.get_json().get('budget')
+    j_dep = request.args.get('j_dep')
+    j_arr = request.args.get('j_arr')
+    nbActivities = int(request.args.get('nbActivities'))
+    j_dep = datetime.strptime(j_dep,"%Y-%m-%d").date()
+    j_arr = datetime.strptime(j_arr,"%Y-%m-%d").date()
+    print(j_dep)
+    print(type(j_dep))
+    position = al.get_position(data_ok)
+    ordered_activities = al.planning(position,nbActivities,j_dep,j_arr)
+    diff_days = (j_arr - j_dep).days
+    schedule = al.timing(ordered_activities,nbActivities,diff_days)
+    #print(data_ok)
+    print(schedule)
+    print('data_ko = ',data_ko)
+    #return jsonify({'schedule':schedule})
+    return jsonify({'schedule':schedule})
+#@app.route('/auth/Timetable', methods=['GET','OPTIONS'])
+#@cross_origin(headers=['Content-Type']) # Send Access-Control-Allow-Headers
+#def Timetable():
+   # print('OKOK')
+##############################################################################
 # MAIN
 ###############################################################################
 if __name__ == "__main__":
     app.run(host='0.0.0.0')
 ###############################################################################
-
-###############################################################################
-@app.route('/auth/Activities', methods=['POST','OPTIONS'])
-@cross_origin(headers=['Content-Type']) # Send Access-Control-Allow-Headers
-
-def FormCity():
-    data_ok = request.get_json().get('data_ok')
-    #ids = request.get_json().get('dest')
-    #nbActivities = request.get_json().get('budget')
-    #j_dep = request.get_json().get('j_dep')
-    #j_arr = request.get_json().args.get('j_arr')
-    #position = get_position(ids)
-    #ordered_activities = planning(position,nbActivities,j_dep,j_arr)
-    #diff_days = (j_arr - j_dep).days
-    #schedule = timing(ordered_activities,nbActivities,diff_days)
-    print(data_ok)
-    #return jsonify({'schedule':schedule})
-
 
 
 

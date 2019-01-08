@@ -3,8 +3,10 @@ import numpy as np
 import sys
 from nltk.corpus import wordnet as wn
 import datetime
+from datetime import timedelta
 import json
 from urllib.request import urlopen
+import os, ssl
 #from datetime import date
 
 
@@ -123,7 +125,7 @@ def planning(positions,nbActivities,dateDebut,dateFin):
     for i in range(diff_days):
         for j in range(1,nbActivities):
             next = next_activities(lat_init,lng_init,lat,lng,ids)
-            print(next)
+            #print(next)
             res.append({'id':next['id'], 'date':dateDebut+timedelta(days = i),'ordre':j,'time':next['time']})
             lat_init = next['lat']
             lng_init = next['lng']
@@ -156,7 +158,7 @@ def timing(res,nbActivities,nbDays):
     hours_per_acti = [int(hour/nbActivities) for hour in hours]
     
     for i in range(nbDays):
-        actu_date = datetime.datetime(res[nbActivities*i]['date'].year, res[nbActivities*i]['date'].month, res[nbActivities*i]['date'].day, 9, 0)
+        actu_date = datetime.datetime(res[nbActivities*i]['date'].year, res[nbActivities*i]['date'].month, res[nbActivities*i]['date'].day, 8, 0)
         ##print(actu_date)
         temp=1
         for j in range(nbActivities):

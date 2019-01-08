@@ -101,8 +101,9 @@ class CheckboxOption extends Component {
       this.setState({ j_arr: e.target.value });
     }
 
-	sendFormInformation = (dest, budget, time, koa, value, value2, j_dep, j_arr,nb_day) => {
-	let formData = new FormData();
+	sendFormInformation = (dest, budget, time, koa, value, value2, j_dep, j_arr,nb_day,event) => {
+		
+		let formData = new FormData();
 	formData.append('dest', dest);
 	formData.append('budget',budget);
 	formData.append('koa',koa);
@@ -111,7 +112,8 @@ class CheckboxOption extends Component {
 	formData.append('j_dep',j_dep);
 	formData.append('nb_day',nb_day);
 	formData.append('value2',j_arr);
-	var url = 'http://10.4.94.196:5000/auth/FormCity?';
+	console.log(formData);
+	var url = 'http://10.4.95.236:5000/auth/FormCity?';
 	var depart = 'dest='.concat(this.state.dest,'&');
 	var result = depart.concat('budget=',this.state.budget,'&',
 							'koa=', this.state.koa,'&',
@@ -148,9 +150,12 @@ class CheckboxOption extends Component {
 		}
 		console.log('Nom = ',this.state.data);
 		var data = this.state.data;
-		var ids = this.state.ids
-		browserHistory.push({pathname:'/Activities',state:{ nom: data,ids : ids }}); 
-	});	
+		var ids = this.state.ids;
+		var j_dep = this.state.j_dep;
+		var j_arr = this.state.j_arr;
+		var nbActivities = this.state.value2;
+		browserHistory.push({pathname:'/Activities',state:{ nom: data, ids:ids,j_arr:j_arr,j_dep:j_dep,nbActivities:nbActivities}}); 
+	})	
 
 
 	//.then(browserHistory.push('/Activities'));
@@ -170,7 +175,7 @@ class CheckboxOption extends Component {
 				<section style={ sectionStyle } id="myPhoto">
 				</section>
 				<div className="register_container">
-					<form id="checkout" role="form" onSubmit={() => this.sendFormInformation(dest, budget, time, koa, value, value2)}>
+					<form id="checkout" role="form" >
 						<div className="form-group">
 							<h2> Veuillez indiquer les informations ci-dessous : </h2>
 							<div className="row">
@@ -196,7 +201,7 @@ class CheckboxOption extends Component {
 					</div>
 					<div className="form-group">
 						<div className="row">
-							<label className="col-sm-2" htmlFor="j_dep">Arrivée</label>
+							<label className="col-sm-2" htmlFor="j_dep">Retour</label>
 							<div className="col-sm-8">
 								<input type="date" value={this.state.j_arr} name="j_arr" required={true} onChange={this.changeJ_arr} />
 							</div>
@@ -218,7 +223,7 @@ class CheckboxOption extends Component {
 									  <option value="Solo">Seul</option>
 									  <option value="Couple">Couple</option>
 									  <option value="Entre amis">Entre amis</option>
-										<option value="Entre collÃ¨gues">Entre collègues</option>
+										<option value="Entre collègues">Entre collègues</option>
 										<option value="Famille">En famille</option>
 									</select>
 								</div>
@@ -251,10 +256,10 @@ class CheckboxOption extends Component {
 									<div className="col-sm-offset-2 col-sm-10">
 										<div className="auth-button">
 											<button
-												type="submit"
+												type="button"
 												name="auth-button-go"
 												id="submit"
-												>Soumettre
+												onClick={(event) => this.sendFormInformation(dest, budget, time, koa, value, value2,event)}>Soumettre
 											</button>
 										</div>
 									</div>

@@ -47,7 +47,7 @@ class Login extends React.Component {
 	let formData = new FormData();
 	formData.append('email', email);
 	formData.append('mdp',mdp);
-    fetch('http://10.2.68.50:5000/auth/login', {
+    fetch('http://10.4.94.196:5000/auth/login', {
         method: 'POST',
         body: formData
     }).then(browserHistory.push('/Choice'));

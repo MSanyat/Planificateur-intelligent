@@ -85,6 +85,7 @@ class Activities extends React.Component {
 	constructor(props) {
 		super(props);
 		this.handleClick = this.handleClick.bind(this);
+		this.submit = this.submit.bind(this);
 		this.temp = this.temp.bind(this);
 		//this.values = this.props.location.state.nom.bind(this);
 		//<button class="btn btn-success"><TiTick /></button>
@@ -96,7 +97,12 @@ class Activities extends React.Component {
 			ids : this.props.location.state.ids,
 			button: 'Valider',
 			data_ok:[],
-			data_ko:[]
+			data_ko:[],
+			j_dep: this.props.location.state.j_dep,
+			j_arr: this.props.location.state.j_arr,
+			nbActivities: this.props.location.state.nbActivities,
+			schedule:[],
+			full_schedule:[]
 		};
 	}
 
@@ -145,8 +151,8 @@ class Activities extends React.Component {
 		dataList = data.map(function (data,index) {
 			const idList = this.state.ids;
 			return <li>{data}	<div>
-				<button id={idList[index]+'_ok'} value={data} class="btn btn-success" onClick={this.handleClick}><TiTick /></button>
-				<button id={idList[index]+'_ko'} class="btn btn-danger" onClick={this.handleClick}><TiTimes /></button></div>
+				<button type="button"  id={idList[index]+'_ok'} value={data} class="btn btn-success" onClick={this.handleClick}><TiTick /></button>
+				<button type="button"  id={idList[index]+'_ko'} class="btn btn-danger" onClick={this.handleClick}><TiTimes /></button></div>
 			</li>
 		}.bind(this))
 		return (
@@ -156,9 +162,63 @@ class Activities extends React.Component {
 		);
 	}
 
-	submit = () => {
-		let formData = new FormData();
+	submit = (data_ok, data_ko) => {
+		console.log('in submit');
+		console.log(data_ok);
+		console.log(this.state.data_ok);
+		//let formData = new FormData();
+		//formData.append('data_ok', data_ok);
+		//formData.append('data_ko', data_ko);
+		//console.log(formData);
+		var url = 'http://10.4.95.236:5000/auth/Activities?';
+		var depart = 'data_ok='.concat(this.state.data_ok,'&');
+		var result = depart.concat('data_ko=',this.state.data_ko,'&j_dep=',this.state.j_dep,'&j_arr=',this.state.j_arr,'&nbActivities=',this.state.nbActivities);
+		var request = new Request(url.concat(result), {method:'GET', headers : ({
+			'Accept': 'application/json',
+			//'Content-Type': 'application/json'
+			'Content-Type':'application/x-www-form-urlencoded'
+	   })
+	   /*,body: JSON.stringify({
+		data_ok: this.state.data_ok,
+		data_ko: this.state.data_ko
+	  }) */
+	});
+	   fetch(request)
+	   .then((response) =>{
+		 console.log(response);
+		var json=response.json();
+			//console.log(json.schedule);
+			
+			//this.state.schedule=json.schedule;
+			//console.log("Resultat = ",this.state.schedule);
+			return json;})
+		
+		.then(( schedule ) => {
+			this.state.schedule = schedule.schedule;
+			console.log(this.state.schedule);
+		/*	for (var i = 0, emp; i <this.state.resultat.steps.length; i++) { 
+				emp = this.state.resultat.steps[i]; 
+				this.state.data.push(emp.nom);
+				this.state.ids.push(emp.id);
+			}
+			console.log('Nom = ',this.state.data);
+			var data = this.state.data;
+			var ids = this.state.ids;
+			var j_dep = this.state.j_dep;
+			var j_arr = this.state.j_arr;
+			var nbActivities = this.state.value2; */
+			var schedule = this.state.schedule;
+			browserHistory.push({pathname:'/Timetable',state:{ schedule: this.state.schedule}})
+			
+		})
+	//	.then();
+	}
+/*
+	submit = (data_ok, data_ko) => {
+		console.log('in submit');
+		let formData = new FormData();		
 		fetch('http://10.2.68.50:5000/auth/Activities?', {
+			
 			method: "post",
 			headers: {
 			  'Accept': 'application/json',
@@ -172,29 +232,31 @@ class Activities extends React.Component {
 			})
 		}).then(browserHistory.push('/timetable'));
 	}
-
+*/
+//onSubmit={() => this.submit()}
 	myFunction = () => {
 		console.log()
 	}
 
 	render() {
-
+		const {data_ko, data_ok} = this.state;
 		return (
-
 			<div className="cover-full">
 				<section style={sectionStyle} id="myPhoto">
 				</section>
+				<form id="checkout" role="form">
+				
 				<div className="login_container">
 					<h2> Veuillez choisir les activités vous correspondant:</h2>
-
 					<h4>{this.temp()}</h4>
 					<div id="testDoc"></div>
-
-					<form id="Activities" role="form" onSubmit={() => this.submit()}>
-						<center><button class="btn btn-default" type="submit">{this.state.button}
+				
+						<center><button class="btn btn-default" type="button" onClick={() => this.submit(data_ok, data_ko)}>{this.state.button}
 						</button></center>
-					</form>
+				
 				</div>
+				
+				</form>
 			</div>
 		)
 	}
