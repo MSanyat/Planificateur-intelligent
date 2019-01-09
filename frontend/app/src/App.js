@@ -197,7 +197,7 @@ class App extends React.Component {
 	formData.append('t_max', this.state.t_max);
 	formData.append('d_max', this.state.d_max);
 	formData.append('max_escales', this.state.max_escales);
-	var url = 'http://192.168.127.1:5000/auth/form?';
+	var url = 'http://10.4.95.236:5000/auth/form?';
 	var depart = 'add_dep='.concat(this.state.add_dep,'&');
 	var result = depart.concat('j_dep=',this.state.j_dep,'&',
 							'h_dep=', this.state.h_dep,'&',
@@ -218,7 +218,7 @@ class App extends React.Component {
      'Content-Type': 'application/x-www-form-urlencoded'
    },formData)});
 // this.props.history.push({pathname : '/map',state : {detail : formData}})
-//browserHistory.push('/map',{data : formData});
+ browserHistory.push('/map',{data : formData});
 //	fetch('http://192.168.127.1:5000/auth/form?add_dep=Metz&add_arr=Bordeaux&escales=Paris&tags=Art&max_escales=3&optimisation=affinity&mode=driving&h_dep=08:00&h_arr=21:00&j_dep=01122018&j_arr=01122018&t_max=7200&d_max=300000', {method:'GET', mode:'no-cors', headers : new Headers(formData)})
 	fetch(request)
 	.then((response) =>{

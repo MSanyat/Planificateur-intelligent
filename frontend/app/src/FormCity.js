@@ -10,6 +10,7 @@ import Background from './static/img/paris.jpg';
 import Background2 from './static/img/Paris2.jpg';
 import axios from 'axios';
 import App from './App';
+import { WithContext as ReactTags } from 'react-tag-input';
 
 var sectionStyle = {
 	width: "100%",
@@ -42,29 +43,57 @@ class CheckboxOption extends Component {
  export class FormCity extends React.Component {
 	constructor(props) {
 		super(props);
-		this.sendFormInformation = this.sendFormInformation.bind(this);
-		this.changeDest = this.changeDest.bind(this);
-		this.changeBudget = this.changeBudget.bind(this);
-		this.onChange = this.onChange.bind(this);
-		this.changeNbday = this.changeNbday.bind(this);
-		this.onChange2 = this.onChange2.bind(this);
-		this.changeKoa = this.changeKoa.bind(this);
-		this.changeJ_dep = this.changeJ_dep.bind(this);
-		this.changeJ_arr = this.changeJ_arr.bind(this);
 		this.state = {
+			tags: [],
+            suggestions: [
+                { id: 'Museum', text: 'Museum' },{  id: 'Zoo', text: 'Zoo' },{  id: 'Art Gallery', text: 'Art Gallery' },{  id: 'Hot Spring', text: 'Hot Spring' },{  id: 'Building', text: 'Building' },{  id: 'Cafe', text: 'Cafe' },{  id: 'Bowling', text: 'Bowling' },
+                { id: 'Lake', text: 'Lake' },{  id: 'Lounge', text: 'Lounge' },{  id: 'Hotel', text: 'Hotel' },{  id: 'Plaza', text: 'Plaza' },{  id: 'Garden', text: 'Garden' },{  id: 'Sports', text: 'Sports' },{  id: 'Restaurant', text: 'Restaurant' },
+			],
 			dest: '',
 			budget: '',
 			nb_day: '',
 			value: 'select',//kind of travel
 			value2: 'select',//number of activities
-			koa:'', //kind of activities
 			j_dep:'',
 			j_arr:'',
 			resultat:[],
 			data:[],
 			ids:[]
 		};
+		this.sendFormInformation = this.sendFormInformation.bind(this);
+		this.changeDest = this.changeDest.bind(this);
+		this.changeBudget = this.changeBudget.bind(this);
+		this.onChange = this.onChange.bind(this);
+		this.changeNbday = this.changeNbday.bind(this);
+		this.onChange2 = this.onChange2.bind(this);
+		this.changeJ_dep = this.changeJ_dep.bind(this);
+		this.changeJ_arr = this.changeJ_arr.bind(this);
+		this.handleDelete = this.handleDelete.bind(this);
+        this.handleAddition = this.handleAddition.bind(this);
+        this.handleDrag = this.handleDrag.bind(this);
 	}
+
+	handleDelete(i) {
+        const { tags } = this.state;
+        this.setState({
+         tags: tags.filter((tag, index) => index !== i),
+        });
+    }
+ 
+    handleAddition(tag) {
+        this.setState(state => ({ tags: [...state.tags, tag] }));
+    }
+ 
+    handleDrag(tag, currPos, newPos) {
+        const tags = [...this.state.tags];
+        const newTags = tags.slice();
+ 
+        newTags.splice(currPos, 1);
+        newTags.splice(newPos, 0, tag);
+ 
+        // re-render
+        this.setState({ tags: newTags });
+    }
 
 	onChange(e) {
 		console.log("CHANGE5");
@@ -88,10 +117,6 @@ class CheckboxOption extends Component {
       console.log("CHANGEX");
       this.setState({ nb_day: e.target.value });
     }
-    changeKoa(e) {
-      console.log("CHANGE7");
-      this.setState({ koa: e.target.value });
-		}
 		changeJ_dep(e) {
       console.log("CHANGE3");
       this.setState({ j_dep: e.target.value });
@@ -101,26 +126,29 @@ class CheckboxOption extends Component {
       this.setState({ j_arr: e.target.value });
     }
 
-	sendFormInformation = (dest, budget, time, koa, value, value2, j_dep, j_arr,nb_day,event) => {
-		
+	sendFormInformation = (tags, dest, budget, time, value, value2, j_dep, j_arr,nb_day,event) => {
+		var tags_list=[]
+		for (var i = 0; i < this.state.tags.length; i++) {
+		tags_list[i]=this.state.tags[i].id;
+		}
 		let formData = new FormData();
 	formData.append('dest', dest);
 	formData.append('budget',budget);
-	formData.append('koa',koa);
 	formData.append('value', value);
 	formData.append('value2',value2);
 	formData.append('j_dep',j_dep);
 	formData.append('nb_day',nb_day);
 	formData.append('value2',j_arr);
+	formData.append('tags', tags_list);
 	console.log(formData);
 	var url = 'http://10.4.95.236:5000/auth/FormCity?';
 	var depart = 'dest='.concat(this.state.dest,'&');
 	var result = depart.concat('budget=',this.state.budget,'&',
-							'koa=', this.state.koa,'&',
 							'value=', this.state.value,'&',
 							'nb_day=', this.state.nb_day,'&',
 							'j_dep=', this.state.j_dep,'&',
 							'j_arr=', this.state.j_arr,'&',
+							'tags=', tags_list,'&',
 							'value2=', this.state.value2,'&');
 	alert(result);
 
@@ -168,7 +196,7 @@ class CheckboxOption extends Component {
 
   render () {
 
-    const {dest, budget, time, koa, value, value2, j_dep, j_arr, nb_day} = this.state;
+    const {dest, budget, time, value, value2, j_dep, j_arr, nb_day, tags, suggestions} = this.state;
 
     return (
     		<div className="cover-full">
@@ -245,8 +273,17 @@ class CheckboxOption extends Component {
 						</div>
 						<div className="form-group">
 							<div className="row">
+								<label className="col-sm-2" htmlFor="tags">Tags</label>
 								<div className="col-sm-8">
-									<input type="text" value={this.state.koa} onChange={this.changeKoa} className="form-control" name="koa" placeholder="Genres d'activité" required />
+									<div>
+										<ReactTags tags={tags}
+											suggestions={suggestions}
+											handleDelete={this.handleDelete}
+											handleAddition={this.handleAddition}
+											handleDrag={this.handleDrag}
+											name="tags"
+											id="tags" />
+									</div>
 								</div>
 							</div>
 						</div>
@@ -259,7 +296,7 @@ class CheckboxOption extends Component {
 												type="button"
 												name="auth-button-go"
 												id="submit"
-												onClick={(event) => this.sendFormInformation(dest, budget, time, koa, value, value2,event)}>Soumettre
+												onClick={(event) => this.sendFormInformation(dest, budget, time, value, value2,event)}>Soumettre
 											</button>
 										</div>
 									</div>

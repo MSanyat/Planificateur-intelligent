@@ -47,10 +47,41 @@ class Login extends React.Component {
 	let formData = new FormData();
 	formData.append('email', email);
 	formData.append('mdp',mdp);
-    fetch('http://10.4.94.196:5000/auth/login', {
-        method: 'POST',
-        body: formData
-    }).then(browserHistory.push('/Choice'));
+   // fetch('http://192.168.127.1:5000/auth/login', {
+   //     method: 'POST',
+   //     body: formData
+  //  })
+  /**
+	var request = new Request('http://192.168.127.1:5000/auth/login', {method:'POST', headers : new Headers({
+     'Authorization': 'Basic '+btoa('username:password'), 
+     'Content-Type': 'application/x-www-form-urlencoded'
+   },formData)});
+   fetch(request)  **/
+   fetch('http://10.4.95.236:5000/auth/login', {
+  method: 'POST',
+  headers: {
+    'Accept': 'application/json',
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify({
+    email: email,
+    mdp: mdp,
+  })
+})
+	.then((response) =>{
+     console.log(response);
+	var json=response.json();
+		console.log(json);
+		return json})
+	.then(( result ) => {
+		console.log(result.result.status);
+		this.state.status=result.result.status;
+	if (this.state.status =='Success')
+		{
+			browserHistory.push('/Choice');
+		}
+	else { alert('Identifiant incorrect'); }
+  })
   }
 
 

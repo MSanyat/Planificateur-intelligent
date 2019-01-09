@@ -148,6 +148,7 @@ def planning(positions,nbActivities,dateDebut,dateFin):
 def timing(res,nbActivities,nbDays):
     tps_trans = []
     ordre_acti = []
+    
     for i in range(nbDays):
         time_total = 0
         for j in range(nbActivities):

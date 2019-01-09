@@ -4,6 +4,7 @@ import { render } from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 // Import routing components
 import {Router, Route, browserHistory} from 'react-router';
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 // Import custom components
 import './index.css';
 import App from './App.js';
@@ -21,7 +22,8 @@ import Timetable from './Timetable.js';
 
 ReactDom.render(
     <Router history={browserHistory}>
-        <Route path="/" component={Login}/>
+        <Route path="/" component={Welcome}/>
+		<Route path="/login" component={Login}/>
         <Route path="/Activities" component={Activities}/>
         <Route path="/FormCity" component={FormCity}/>
         <Route path="/Choice" component={Choice}/>
@@ -31,9 +33,7 @@ ReactDom.render(
 		<Route path="/logout" component={Logout}/>
 		<Route path="/test" component={Test}/>
 		<Route path="/welcome" component={Welcome}/>
-        <Route path="/Timetable" component={Timetable}/>
+        <Route path="/timetable" component={Timetable}/>
     </Router>,
     document.querySelector('#root')
-)
-
-;
+);

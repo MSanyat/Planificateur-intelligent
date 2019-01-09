@@ -128,25 +128,30 @@ def welcome():
 # Page de login
 @app.route('/auth/login', methods=['POST'])
 def login():
-    email=request.form['email']
-    password=request.form['mdp']
+    print('login')
+    json = request.json
+    print(json)
+    email=json['email']
+    password=json['mdp']
     print(email)
     print(password)
     try:
         check_user = User.objects(email=email).first()
         if check_user:
             if check_password_hash(check_user['password'], password):
-                token = encodeAuthToken(email)
+               ## token = encodeAuthToken(email)
                 login_user(check_user)
-        return jsonify(result={
-            'status': 'Success',
-            'auth_token': str(token)
-        })
-    except Exception as e:
-        return jsonify({
+                result={'status': 'Success'}
+                print(result)
+                return jsonify(result={'status': 'Success'})
+            return jsonify(result={
             'status': 'Failure',
             'error': 'echec de l\'authentification',
-            'type': str(type(e))
+        })
+    except Exception as e:
+        return jsonify(result={
+            'status': 'Failure',
+            'error': 'echec de l\'authentification',
         })
 ###############################################################################
 # Page de registering
@@ -282,13 +287,16 @@ def FormCity():
     budget = request.args.get('budget')
     j_dep = request.args.get('j_dep')
     j_arr = request.args.get('j_arr')
+    #tags=request.form.getlist('tags')
+    tags = request.args.get('tags')
     value = request.args.get('value') #Type de voyage
     value2 = int(request.args.get('value2')) #Nombre d'activités
     nb_day = int(request.args.get('nb_day'))
     koa = request.args.get('koa') #Type d'activités
     diff = value2 * nb_day
     #print(diff)
-    test=al.get_best_places([koa], value, diff)#, j_arr, j_dep)
+    #test=al.get_best_places([koa], value, diff)#, j_arr, j_dep)
+    test=al.get_best_places([tags], value, diff)
     info =al.get_places_info(test)
     print(info)
     return jsonify({'steps':info})
@@ -319,11 +327,13 @@ def Activities():
     nbActivities = int(request.args.get('nbActivities'))
     j_dep = datetime.strptime(j_dep,"%Y-%m-%d").date()
     j_arr = datetime.strptime(j_arr,"%Y-%m-%d").date()
+    end_date = j_arr + timedelta(days=1)
     print(j_dep)
     print(type(j_dep))
     position = al.get_position(data_ok)
-    ordered_activities = al.planning(position,nbActivities,j_dep,j_arr)
-    diff_days = (j_arr - j_dep).days
+    ordered_activities = al.planning(position,nbActivities,j_dep,end_date)
+    diff_days = (end_date - j_dep).days 
+
     schedule = al.timing(ordered_activities,nbActivities,diff_days)
     #print(data_ok)
     print(schedule)

@@ -28,7 +28,8 @@ class Register extends React.Component {
 	ville:'',
 	rue:'',
 	cp:'',
-	tags:''
+	tags:'',
+	status:''
   }
 	}
   
@@ -97,7 +98,7 @@ changeTags(e) {
 	formData.append('rue',rue);
 	formData.append('tags',tags);
 	console.log(formData)
-    fetch('http://192.168.127.1:5000/auth/register', {
+    fetch('http://10.4.95.236:5000/auth/register', {
         method: 'POST',
         body: formData,
 		mode: 'no-cors'
